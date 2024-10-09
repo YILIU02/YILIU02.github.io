@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>SQL注入基础 | 印星</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、SQL注入简介SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交的数据被后端直接当成数据库代码执行，因此攻击者可以构造不同的SQL语句来查询数据库数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL注入基础">
+<meta property="og:url" content="http://example.com/2024/10/07/SQL%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="印星">
+<meta property="og:description" content="一、SQL注入简介SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交的数据被后端直接当成数据库代码执行，因此攻击者可以构造不同的SQL语句来查询数据库数据。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-07T05:41:49.000Z">
+<meta property="article:modified_time" content="2024-10-07T12:31:11.332Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="印星" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">印星</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-SQL注入" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/07/SQL%E6%B3%A8%E5%85%A5/" class="article-date">
+  <time class="dt-published" datetime="2024-10-07T05:41:49.000Z" itemprop="datePublished">2024-10-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SQL注入基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一、SQL注入简介<br>SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交的数据被后端直接当成数据库代码执行，因此攻击者可以构造不同的SQL语句来查询数据库数据。</p>
+<span id="more"></span>
+<p>二、SQL注入条件<br>1.用户能控制传入后端的数据<br>2.web应用程序把数据作为数据库代码执行</p>
+<p>三、注入步骤<br>1.数字型注入<br>如果存在注入漏洞，且输入数据类型为整型，则可以认为是数字型注入<br>假设对应SQL语句为select * from table where id&#x3D;？，其中id为用户以get形式传递的参数<br>（1）正常输入<br>URL后加上？id&#x3D;1,这时候SQL语句为select * from table where id&#x3D;1,会查询表内id为1的数据<br>（2）单引号测试<br>URL后加上？id&#x3D;1’,这时候SQL语句为select * from table where id&#x3D;1’，此时SQL语句错误，系统会抛出异常<br>（3）and true测试<br>URL后加上？id&#x3D;1 and 1&#x3D;1,这时候SQL语句为select * from table where id&#x3D;1 and 1&#x3D;1,其中1&#x3D;1为true，那就和（1）情况一样，查询表内id&#x3D;1的数据<br>（4）and false测试<br>URL后加上？id&#x3D;1 and 1&#x3D;2,这时候SQL语句为select * from table where id&#x3D;1 and 1&#x3D;2,其中1&#x3D;2为false，则该语句虽然可以正常执行，但查询不了数据<br>（5）or true测试<br>URL后加上？id&#x3D;1 or 1&#x3D;1,这时候SQL语句为select * from table where id&#x3D;1 or 1&#x3D;1,其中1&#x3D;1为true，那语句就变成查询所有id存在的数据，一般来说这时候我们就能够获取到需要的数据了</p>
+<p>2.字符串型注入<br>如果存在注入漏洞，且输入数据类型为字符串，则可以认为是字符串型注入<br>与整数型注入不同的是，字符串注入需要使用单引号闭合<br>假设对应SQL语句为select * from table where username&#x3D;？，其中username为用户以get形式传递的参数<br>（1）正常输入<br>URL后加上？username&#x3D;admin,这时候SQL语句为select * from table where username&#x3D;’admin’,会查询username为admin的数据<br>（2）单引号测试<br>URL后加上？username&#x3D;admin’,这时候SQL语句为select * from table where username&#x3D;’admin’’，此时SQL语句错误，系统会抛出异常<br>(3) and true测试<br>URL后加上？username&#x3D;admin’ and 1&#x3D;1,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1’,此时语句末尾存在单引号，语句错误系统抛出错误<br>那我们只要把最后的引号注释掉就可以正常执行了，URL后加上？username&#x3D;admin’ and 1&#x3D;1#,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1#’，而#为注释符号，执行语句时会忽略#后面的部分，在这里就是忽略最后的’,则最后能够正常执行，结果与（1）相同</p>
+<p>最后and false与or测试只要最后加上#注释符，最后预期结果都与整数型注入的对应结果相同<br>除#号注释符外，还有–和–%20等其他注释方式，详细可了解<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43096078/article/details/108215076">https://blog.csdn.net/weixin_43096078/article/details/108215076</a></p>
+<p>四、实战<br>我们选择buuctf中的一道SQL注入题目为例子<br>buuctf：<a target="_blank" rel="noopener" href="https://buuoj.cn/">https://buuoj.cn/</a></p>
+<p>首先名字为EASYSQL,那就用SQL注入浅浅的做一下<br>这种表单数据提交一般都是字符串型注入<br>先是抓包正常输入username&#x3D;1,password&#x3D;1看一下正常页面是怎么样的</p>
+<p>提示错误，再试试单引号测试</p>
+<p>翻译一下回显页面”您的 SQL 语法有错误;检查与您的 MariaDB 服务器版本相对应的手册，了解在第 1 行的 ‘1’’’ 附近使用的正确语法”,可以知道第一行有SQL注入漏洞，就是username，那对第一行进行and true测试，由于抓包改get传参数’后面的数据难改，就回到原本题目页面输入，发现和正常输入回显一样</p>
+<p>那就直接or测试进行攻击，拿到flag</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/07/SQL%E6%B3%A8%E5%85%A5/" data-id="cm1yt0nfo0000dlcp9yj82nxl" data-title="SQL注入基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/07/SQL%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SQL爆库，表，字段以及双写绕过
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/10/06/ZoomEye/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ZoomEye</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/08/xss%E6%B3%A8%E5%85%A5/">xss注入</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/07/SQL%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97%E6%93%8D%E4%BD%9C/">SQL爆库，表，字段以及双写绕过</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/07/SQL%E6%B3%A8%E5%85%A5/">SQL注入基础</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/06/ZoomEye/">ZoomEye</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/05/%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%9C%8B%E6%B3%95/">对等保2.0的看法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

