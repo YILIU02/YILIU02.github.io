@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>QQ流量分析</title>
+      <link href="/2024/10/10/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+      <url>/2024/10/10/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<p>QQ流量分析</p><p>1.测试条件：两台设备处于同一个局域网下<br>使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/1.png"><br>可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP<br>接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/0.png"><br>知道jpg文件头为ffd8，在wireshark使用十六进制查找<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/2.png"><br>可以看到数据块中存在jfif字符，确定抓的包没问题，随后右键该包并选择追踪流，导出原始数据并命名为qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/3.png"><br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/4.png"><br>直接打开看不了,因此我们将其用winhex打开<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/5.png"><br>找到ffd8文件头，并将前面数据块删除，并保存覆盖原本的qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/6.png"><br>此时直接打开就可以看到发送的图片了<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/7.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>xss注入</title>
       <link href="/2024/10/08/XSS%E6%B3%A8%E5%85%A5/"/>
       <url>/2024/10/08/XSS%E6%B3%A8%E5%85%A5/</url>
