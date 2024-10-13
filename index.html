@@ -227,7 +227,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/10/13/Tomcat%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" target="_self">
+          <img src="/img/6.jpg" srcset="/img/loading.gif" lazyload alt="Tomcat漏洞复现">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
         <a href="/2024/10/13/Tomcat%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" target="_self">
@@ -236,9 +242,9 @@
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/10/13/Tomcat%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" target="_self">
+      <a class="index-excerpt " href="/2024/10/13/Tomcat%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" target="_self">
         <div>
-          hello 1goback=%7B%22%22%3A%22http%3A%5C%2F%5C%2F125.217.36.103%5C%2Findex.php%3Fm%3Duser%26f%3Dlogin%22%7D
+          一、Tomcat漏洞原理    Tomcat可以在后台部署War文件，默认的后台页面只允许在本地访问，如果内部技术人员手动配置允许其远程访问，在能得到后台管理账户和密码的情况下，攻击者可以上传木马图片，控制主机权限。 二、涉及版本全版本 三、漏洞复现条件1.后台管理页面允许远程访问2.能拿到账户密码 四、复现步骤(搭建容器过程省略)（1）弱口令爆破账号密码1.进入Tomcat后台页面点击Manag
         </div>
       </a>
 
