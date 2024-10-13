@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/3.jpg">
 <meta property="article:published_time" content="2024-10-07T05:41:49.000Z">
-<meta property="article:modified_time" content="2024-10-11T15:27:52.513Z">
+<meta property="article:modified_time" content="2024-10-13T13:42:50.522Z">
 <meta property="article:author" content="印星">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/3.jpg">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          990 字
+          979 字
         
       </span>
     
@@ -279,8 +279,8 @@
               <div class="markdown-body">
                 
                 <p>一、SQL注入简介<br>SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交的数据被后端直接当成数据库代码执行，因此攻击者可以构造不同的SQL语句来查询数据库数据。<br>二、SQL注入条件<br>1.用户能控制传入后端的数据<br>2.web应用程序把数据作为数据库代码执行</p>
-<p>三、注入步骤<br>1.数字型注入<br>如果存在注入漏洞，且输入数据类型为整型，则可以认为是数字型注入<br>假设对应SQL语句为select * from table where id&#x3D;？，其中id为用户以get形式传递的参数<br>（1）正常输入<br>URL后加上？id&#x3D;1,这时候SQL语句为select * from table where id&#x3D;1,会查询表内id为1的数据<br>（2）单引号测试<br>URL后加上？id&#x3D;1’,这时候SQL语句为select * from table where id&#x3D;1’，此时SQL语句错误，系统会抛出异常<br>（3）and true测试<br>URL后加上？id&#x3D;1 and 1&#x3D;1,这时候SQL语句为select * from table where id&#x3D;1 and 1&#x3D;1,其中1&#x3D;1为true，那就和（1）情况一样，查询表内id&#x3D;1的数据<br>（4）and false测试<br>URL后加上？id&#x3D;1 and 1&#x3D;2,这时候SQL语句为select * from table where id&#x3D;1 and 1&#x3D;2,其中1&#x3D;2为false，则该语句虽然可以正常执行，但查询不了数据<br>（5）or true测试<br>URL后加上？id&#x3D;1 or 1&#x3D;1,这时候SQL语句为select * from table where id&#x3D;1 or 1&#x3D;1,其中1&#x3D;1为true，那语句就变成查询所有id存在的数据，一般来说这时候我们就能够获取到需要的数据了</p>
-<p>2.字符串型注入<br>如果存在注入漏洞，且输入数据类型为字符串，则可以认为是字符串型注入<br>与整数型注入不同的是，字符串注入需要使用单引号闭合<br>假设对应SQL语句为select * from table where username&#x3D;？，其中username为用户以get形式传递的参数<br>（1）正常输入<br>URL后加上？username&#x3D;admin,这时候SQL语句为select * from table where username&#x3D;’admin’,会查询username为admin的数据<br>（2）单引号测试<br>URL后加上？username&#x3D;admin’,这时候SQL语句为select * from table where username&#x3D;’admin’’，此时SQL语句错误，系统会抛出异常<br>(3) and true测试<br>URL后加上？username&#x3D;admin’ and 1&#x3D;1,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1’,此时语句末尾存在单引号，语句错误系统抛出错误<br>那我们只要把最后的引号注释掉就可以正常执行了，URL后加上？username&#x3D;admin’ and 1&#x3D;1#,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1#’，而#为注释符号，执行语句时会忽略#后面的部分，在这里就是忽略最后的’,则最后能够正常执行，结果与（1）相同</p>
+<p>三、注入步骤<br>1.数字型注入<br>如果存在注入漏洞，且输入数据类型为整型，则可以认为是数字型注入<br>假设对应SQL语句为<code>select * from table where id=?</code>其中id为用户以get形式传递的参数<br>（1）正常输入<br>URL后加上？id&#x3D;1,这时候SQL语句为<code>select * from table where id=1</code>会查询表内id为1的数据<br>（2）单引号测试<br>URL后加上？id&#x3D;1’,这时候SQL语句为<code>select * from table where id=1’</code>此时SQL语句错误，系统会抛出异常<br>（3）and true测试<br>URL后加上？id&#x3D;1 and 1&#x3D;1,这时候SQL语句为<code>select * from table where id=1 and 1=1</code>其中1&#x3D;1为true，那就和（1）情况一样，查询表内id&#x3D;1的数据<br>（4）and false测试<br>URL后加上？id&#x3D;1 and 1&#x3D;2,这时候SQL语句为<code>select * from table where id=1 and 1=2</code>其中1&#x3D;2为false，则该语句虽然可以正常执行，但查询不了数据<br>（5）or true测试<br>URL后加上？id&#x3D;1 or 1&#x3D;1,这时候SQL语句为<code>select * from table where id=1 or 1=1</code>其中1&#x3D;1为true，那语句就变成查询所有id存在的数据，一般来说这时候我们就能够获取到需要的数据了</p>
+<p>2.字符串型注入<br>如果存在注入漏洞，且输入数据类型为字符串，则可以认为是字符串型注入<br>与整数型注入不同的是，字符串注入需要使用单引号闭合<br>假设对应SQL语句为<code>select * from table where username=？</code>其中username为用户以get形式传递的参数<br>（1）正常输入<br>URL后加上？username&#x3D;admin,这时候SQL语句为<code>select * from table where username=&#39;admin&#39;</code>会查询username为admin的数据<br>（2）单引号测试<br>URL后加上？username&#x3D;admin’,这时候SQL语句为<code>select * from table where username=&#39;admin&#39;’</code>此时SQL语句错误，系统会抛出异常<br>(3) and true测试<br>URL后加上？username&#x3D;admin’ and 1&#x3D;1,这时候SQL语句为<code>select * from table where username=&#39;admin&#39; and 1=1&#39;</code>此时语句末尾存在单引号，语句错误系统抛出错误<br>那我们只要把最后的引号注释掉就可以正常执行了，URL后加上？username&#x3D;admin’ and 1&#x3D;1#,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1#’，而#为注释符号，执行语句时会忽略#后面的部分，在这里就是忽略最后的’,则最后能够正常执行，结果与（1）相同</p>
 <p>最后and false与or测试只要最后加上#注释符，最后预期结果都与整数型注入的对应结果相同<br>除#号注释符外，还有–和–%20等其他注释方式，详细可了解<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43096078/article/details/108215076">https://blog.csdn.net/weixin_43096078/article/details/108215076</a></p>
 <p>四、实战<br>我们选择buuctf中的一道SQL注入题目为例子<br>buuctf：<a target="_blank" rel="noopener" href="https://buuoj.cn/">https://buuoj.cn/</a><br><img src="/img/sql%E6%B3%A8%E5%85%A5/title.png" srcset="/img/loading.gif" lazyload><br>首先名字为EASYSQL,那就用SQL注入浅浅的做一下<br>这种表单数据提交一般都是字符串型注入<br>先是抓包正常输入username&#x3D;1,password&#x3D;1看一下正常页面是怎么样的<br><img src="/img/sql%E6%B3%A8%E5%85%A5/common.png" srcset="/img/loading.gif" lazyload><br>提示错误，再试试单引号测试<br><img src="/img/sql%E6%B3%A8%E5%85%A5/sql.png" srcset="/img/loading.gif" lazyload><br>翻译一下回显页面”您的 SQL 语法有错误;检查与您的 MariaDB 服务器版本相对应的手册，了解在第 1 行的 ‘1’’’ 附近使用的正确语法”,可以知道第一行有SQL注入漏洞，就是username，那对第一行进行and true测试，由于抓包改get传参数’后面的数据难改，就回到原本题目页面输入，发现和正常输入回显一样<br><img src="/img/sql%E6%B3%A8%E5%85%A5/and.png" srcset="/img/loading.gif" lazyload><br><img src="/img/sql%E6%B3%A8%E5%85%A5/commonresult.png" srcset="/img/loading.gif" lazyload><br>那就直接or测试进行攻击，拿到flag<br><img src="/img/sql%E6%B3%A8%E5%85%A5/or.png" srcset="/img/loading.gif" lazyload><br><img src="/img/sql%E6%B3%A8%E5%85%A5/orreslut.png" srcset="/img/loading.gif" lazyload></p>
 
