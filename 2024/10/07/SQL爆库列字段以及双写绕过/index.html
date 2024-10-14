@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/3.png">
 <meta property="article:published_time" content="2024-10-07T11:21:04.000Z">
-<meta property="article:modified_time" content="2024-10-13T13:41:10.324Z">
+<meta property="article:modified_time" content="2024-10-14T10:18:58.848Z">
 <meta property="article:author" content="印星">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/3.png">
@@ -278,18 +278,19 @@
             
               <div class="markdown-body">
                 
-                <p>一、SQL爆库，表，字段基础<br>1.select<br>在SQL语句中select username from table where id&#x3D;1，这条语句执行的在table表中查询并返回id为1的username数据，那select我们可以理解为查询返回的数据，那select 1这条语句我们则可以简单理解为查询并返回1,在简单的无过滤SQL注入题目中如果只有一个回显result：？，输入提交select 1的话，就会输出result：1</p>
-<p>2.unino<br>unino操作符用于合并两个或多个select语句的结果集，比如unino select 1,2这段语句就会将1,2两个数据作为结果集，分别返回1,2,如果回显为<br>result1:?;result2:?<br>输入提交unino select 1,2的话，就会回显result1：1;result2:2</p>
-<p>3.group_concat()<br>group_concat() 函数将 group by子句产生的同一个分组中的值连接起来，返回一个字符串结果。<br>简单的说，就是该函数传入的变量含有多个值，该函数能将这多个值用逗号隔开，并返回一个字符串</p>
-<p>二、SQL爆库，表，字段原理<br>SQL数据库中有默认库information_schema中，其中包含两个重要表<br>1.information_schema.schemata<br>  schemata表中包含了数据库存在的所有的库名，库名的字段为 schema_name<br>     那如果只有一个回显时，我们就可以输入<br>     <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(schema_name) <span class="hljs-keyword">from</span> information_schema.schemata <br></code></pre></td></tr></table></figure><br>     查询并返回schemata表中schema_name的所有值。<br>如果有多个回显，我们就可以用数字进行占位nion select 1,2,……,group_concat(schema_name) from information_schema.schemata最后一个回显就会是所有库名了</p>
-<p>2.information_schema.tables<br>  tables表中包含了数据库存在的所有的表名，库名的字段为 table_name,此时爆表要加where<br>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema<span class="hljs-operator">=</span>?<br></code></pre></td></tr></table></figure><br>  其中？内填写爆的库名</p>
-<p>3.information_schema.columns<br>  columns表中包含了数据库存在的所有的字段名，库名的字段为 column_name，其他和爆表同理</p>
+                <h2 id="一、SQL爆库，表，字段基础"><a href="#一、SQL爆库，表，字段基础" class="headerlink" title="一、SQL爆库，表，字段基础"></a>一、SQL爆库，表，字段基础</h2><h3 id="1-select"><a href="#1-select" class="headerlink" title="1.select"></a>1.select</h3><p>在SQL语句中select username from table where id&#x3D;1，这条语句执行的在table表中查询并返回id为1的username数据，那select我们可以理解为查询返回的数据，那select 1这条语句我们则可以简单理解为查询并返回1,在简单的无过滤SQL注入题目中如果只有一个回显result：？，输入提交select 1的话，就会输出result：1</p>
+<h3 id="2-unino"><a href="#2-unino" class="headerlink" title="2.unino"></a>2.unino</h3><p>unino操作符用于合并两个或多个select语句的结果集，比如unino select 1,2这段语句就会将1,2两个数据作为结果集，分别返回1,2,如果回显为<br>result1:?;result2:?<br>输入提交unino select 1,2的话，就会回显result1：1;result2:2</p>
+<h3 id="3-group-concat"><a href="#3-group-concat" class="headerlink" title="3.group_concat()"></a>3.group_concat()</h3><p>group_concat() 函数将 group by子句产生的同一个分组中的值连接起来，返回一个字符串结果。<br>简单的说，就是该函数传入的变量含有多个值，该函数能将这多个值用逗号隔开，并返回一个字符串</p>
+<h2 id="二、SQL爆库，表，字段原理"><a href="#二、SQL爆库，表，字段原理" class="headerlink" title="二、SQL爆库，表，字段原理"></a>二、SQL爆库，表，字段原理</h2><p>SQL数据库中有默认库information_schema中，其中包含两个重要表</p>
+<h3 id="1-information-schema-schemata"><a href="#1-information-schema-schemata" class="headerlink" title="1.information_schema.schemata"></a>1.information_schema.schemata</h3><p>  schemata表中包含了数据库存在的所有的库名，库名的字段为 schema_name<br>     那如果只有一个回显时，我们就可以输入<br>     <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(schema_name) <span class="hljs-keyword">from</span> information_schema.schemata <br></code></pre></td></tr></table></figure><br>     查询并返回schemata表中schema_name的所有值。<br>如果有多个回显，我们就可以用数字进行占位nion select 1,2,……,group_concat(schema_name) from information_schema.schemata最后一个回显就会是所有库名了</p>
+<h3 id="2-information-schema-tables"><a href="#2-information-schema-tables" class="headerlink" title="2.information_schema.tables"></a>2.information_schema.tables</h3><p>  tables表中包含了数据库存在的所有的表名，库名的字段为 table_name,此时爆表要加where<br>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema<span class="hljs-operator">=</span>?<br></code></pre></td></tr></table></figure><br>  其中？内填写爆的库名</p>
+<h3 id="3-information-schema-columns"><a href="#3-information-schema-columns" class="headerlink" title="3.information_schema.columns"></a>3.information_schema.columns</h3><p>  columns表中包含了数据库存在的所有的字段名，库名的字段为 column_name，其他和爆表同理</p>
 <p>知道了以上三种我们就能获得所有库名，表名，和字段名<br>拥有字段名我们就能进行获得想要的各种值了</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(字段名) <span class="hljs-keyword">from</span> 表名<br>或者<span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(字段名) <span class="hljs-keyword">from</span> 库名.表名<br></code></pre></td></tr></table></figure>
 <p>以上就是爆库，表，列名的基本操作</p>
-<p>三、双写绕过<br>但是在实际注入过程中后端不会轻易的放过你的数据，会用各种规则进行过滤，这时候我们就需要绕过这些过滤规则，这里我先介绍一种比较简单的绕过方式——双写绕过</p>
+<h2 id="三、双写绕过"><a href="#三、双写绕过" class="headerlink" title="三、双写绕过"></a>三、双写绕过</h2><p>但是在实际注入过程中后端不会轻易的放过你的数据，会用各种规则进行过滤，这时候我们就需要绕过这些过滤规则，这里我先介绍一种比较简单的绕过方式——双写绕过</p>
 <p>原理<br>后端有时候会对一些敏感数据进行一些处理，常见的就像将敏感数据修改为空，比如当判断存在unino时，就将它变为空，解决的方法也很简单，改成ununinoino即可，当unino为空时，前后两段字符刚好组合成union，成功绕过</p>
-<p>四、实战<br>我们选择buuctf中的一道SQL注入题目为例子<br>buuctf：<a target="_blank" rel="noopener" href="https://buuoj.cn/">https://buuoj.cn/</a><br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/title.png" srcset="/img/loading.gif" lazyload><br>当我们输入1’ union select 1#时，会显示第一行1#附近有语法错误，这时候就是对1#前面的数据进行了过滤，这时候我们双写一下试试1’ ununionion selselectect 1#<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/one.png" srcset="/img/loading.gif" lazyload><br>发现双写绕过可行，但是列数不对尝试增加列数，输入</p>
+<h2 id="四、实战"><a href="#四、实战" class="headerlink" title="四、实战"></a>四、实战</h2><p> 我们选择buuctf中的一道SQL注入题目为例子<br> buuctf：<a target="_blank" rel="noopener" href="https://buuoj.cn/">https://buuoj.cn/</a><br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/title.png" srcset="/img/loading.gif" lazyload><br>当我们输入1’ union select 1#时，会显示第一行1#附近有语法错误，这时候就是对1#前面的数据进行了过滤，这时候我们双写一下试试1’ ununionion selselectect 1#<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/one.png" srcset="/img/loading.gif" lazyload><br>发现双写绕过可行，但是列数不对尝试增加列数，输入</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion selselectect 1，2,3#</span><br></code></pre></td></tr></table></figure>
 <p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/onecolumn.png" srcset="/img/loading.gif" lazyload><br>列数正确为3,且回显示为2和3<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/twocolumn.png" srcset="/img/loading.gif" lazyload><br>尝试爆库</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,group_concat(schema_name) from information_schema.schemata#</span><br></code></pre></td></tr></table></figure>
@@ -388,6 +389,37 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qZpqDP3MGBMMDfkyf8rCHQBT-gzGzoHsz","appKey":"qLDmXh0IuzB9Z92EcGntGFAu","path":"window.location.pathname","placeholder":"吐槽一下L某的帖子","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qzpqdp3m.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>

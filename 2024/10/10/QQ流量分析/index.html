@@ -19,16 +19,16 @@
   <meta name="author" content="印星">
   <meta name="keywords" content="">
   
-    <meta name="description" content="QQ流量分析 1.测试条件：两台设备处于同一个局域网下使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片知道jpg文件头为ffd8，在wireshark使用十六进制查找可以看到数据块中存在jfif字符，确定抓的包没">
+    <meta name="description" content="QQ流量分析一、测试条件：两台设备处于同一个局域网下 二、操作步骤使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片知道jpg文件头为ffd8，在wireshark使用十六进制查找可以看到数据块中存在jfif字符，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QQ流量分析">
 <meta property="og:url" content="http://example.com/2024/10/10/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="印星">
-<meta property="og:description" content="QQ流量分析 1.测试条件：两台设备处于同一个局域网下使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片知道jpg文件头为ffd8，在wireshark使用十六进制查找可以看到数据块中存在jfif字符，确定抓的包没">
+<meta property="og:description" content="QQ流量分析一、测试条件：两台设备处于同一个局域网下 二、操作步骤使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片知道jpg文件头为ffd8，在wireshark使用十六进制查找可以看到数据块中存在jfif字符，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/5.jpg">
 <meta property="article:published_time" content="2024-10-10T11:26:26.000Z">
-<meta property="article:modified_time" content="2024-10-12T09:45:37.664Z">
+<meta property="article:modified_time" content="2024-10-14T10:21:57.757Z">
 <meta property="article:author" content="印星">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/5.jpg">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          226 字
+          232 字
         
       </span>
     
@@ -278,8 +278,8 @@
             
               <div class="markdown-body">
                 
-                <p>QQ流量分析</p>
-<p>1.测试条件：两台设备处于同一个局域网下<br>使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/1.png" srcset="/img/loading.gif" lazyload><br>可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP<br>接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/0.png" srcset="/img/loading.gif" lazyload><br>知道jpg文件头为ffd8，在wireshark使用十六进制查找<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/2.png" srcset="/img/loading.gif" lazyload><br>可以看到数据块中存在jfif字符，确定抓的包没问题，随后右键该包并选择追踪流，导出原始数据并命名为qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/3.png" srcset="/img/loading.gif" lazyload><br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/4.png" srcset="/img/loading.gif" lazyload><br>直接打开看不了,因此我们将其用winhex打开<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/5.png" srcset="/img/loading.gif" lazyload><br>找到ffd8文件头，并将前面数据块删除，并保存覆盖原本的qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/6.png" srcset="/img/loading.gif" lazyload><br>此时直接打开就可以看到发送的图片了<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/7.png" srcset="/img/loading.gif" lazyload></p>
+                <h1 id="QQ流量分析"><a href="#QQ流量分析" class="headerlink" title="QQ流量分析"></a>QQ流量分析</h1><h2 id="一、测试条件："><a href="#一、测试条件：" class="headerlink" title="一、测试条件："></a>一、测试条件：</h2><p>两台设备处于同一个局域网下</p>
+<h2 id="二、操作步骤"><a href="#二、操作步骤" class="headerlink" title="二、操作步骤"></a>二、操作步骤</h2><p>使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/1.png" srcset="/img/loading.gif" lazyload><br>可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP<br>接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/0.png" srcset="/img/loading.gif" lazyload><br>知道jpg文件头为ffd8，在wireshark使用十六进制查找<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/2.png" srcset="/img/loading.gif" lazyload><br>可以看到数据块中存在jfif字符，确定抓的包没问题，随后右键该包并选择追踪流，导出原始数据并命名为qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/3.png" srcset="/img/loading.gif" lazyload><br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/4.png" srcset="/img/loading.gif" lazyload><br>直接打开看不了,因此我们将其用winhex打开<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/5.png" srcset="/img/loading.gif" lazyload><br>找到ffd8文件头，并将前面数据块删除，并保存覆盖原本的qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/6.png" srcset="/img/loading.gif" lazyload><br>此时直接打开就可以看到发送的图片了<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/7.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -364,6 +364,37 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qZpqDP3MGBMMDfkyf8rCHQBT-gzGzoHsz","appKey":"qLDmXh0IuzB9Z92EcGntGFAu","path":"window.location.pathname","placeholder":"吐槽一下L某的帖子","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qzpqdp3m.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
