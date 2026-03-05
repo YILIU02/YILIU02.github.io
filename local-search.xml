@@ -13,6 +13,8 @@
     
     <categories>
       
+      <category>前端开发</category>
+      
       <category>Javascript原理题</category>
       
     </categories>
@@ -20,7 +22,9 @@
     
     <tags>
       
-      <tag>前端开发，Javascript</tag>
+      <tag>前端开发</tag>
+      
+      <tag>Javascript</tag>
       
     </tags>
     
@@ -47,7 +51,9 @@
     
     <tags>
       
-      <tag>前端开发，Javascript</tag>
+      <tag>前端开发</tag>
+      
+      <tag>Javascript</tag>
       
     </tags>
     
