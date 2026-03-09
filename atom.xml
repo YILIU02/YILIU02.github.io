@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-03-08T11:38:21.854Z</updated>
+  <updated>2026-03-09T08:36:48.497Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端WebAPIs回顾5</title>
+    <link href="http://example.com/2026/03/09/%E5%89%8D%E7%AB%AFWebAPIs%E5%9B%9E%E9%A1%BE5/"/>
+    <id>http://example.com/2026/03/09/%E5%89%8D%E7%AB%AFWebAPIs%E5%9B%9E%E9%A1%BE5/</id>
+    <published>2026-03-09T07:48:06.000Z</published>
+    <updated>2026-03-09T08:36:48.497Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>正则表达式是用于匹配字符串中的字符组合的模式,可以用于验证表单、敏感词过滤<br>**regObj.test(str)**匹配返回bolean,匹配为true<br>**regObj.exec(str)**匹配成功返回Arr,否则为null</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> str=<span class="hljs-string">&#x27;examp str&#x27;</span><br><span class="hljs-keyword">const</span> reg=<span class="hljs-regexp">/str/</span><br>reg.<span class="hljs-title function_">test</span>(str)<br></code></pre></td></tr></table></figure><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><p>元字符是一些具有特殊含义的字符，即将常用的普通字符映射为更简洁的表示方式<br>**[a-z]**代表a到z的26个英文字母<br><strong>边界符</strong>表示位置、开头(^)与结尾($),^…$表示精确匹配…<br><strong>量词</strong>表示重复次数，*表示重复0次或更多次，+表示重复1次或更多次，?表示重复0次或1次;{n}重复n次、{n,}重复n次或以上，{n,m}重复n到m次</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> reg=<span class="hljs-regexp">/^ab*$/</span> <span class="hljs-comment">// /^ab&#123;0,&#125;$/</span><br>reg.<span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;abdiusadab&#x27;</span>)<span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure><p><strong>字符类</strong>使用字符代表规则,[]匹配字符集合，包含集合其中之一，返回匹配；-连字符表示一个范围</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> reg=<span class="hljs-regexp">/[abc]/</span><br><span class="hljs-keyword">const</span> reg1=<span class="hljs-regexp">/^[a-zA-Z0-9]&#123;4,6&#125;$/</span><br></code></pre></td></tr></table></figure><p><strong>预定义类</strong><br><a href="https://juejin.cn/post/7559553453531447306">参考链接</a></p><h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>修饰符表示匹配过程中是否区分大小写、是否支持多行匹配<br><strong>i</strong>表示匹配不区分大小写<br><strong>g</strong>表示全局匹配</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> reg=<span class="hljs-regexp">/^[a-z]/i</span><br></code></pre></td></tr></table></figure><p>**str.replace(reg,str)**将匹配reg的文本替换为str</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;&lt;p&gt;正则表达式是用于匹配字符串中的字符组合的模式,可以用于验证表单、敏感词过滤&lt;br&gt;**regObj.test(str</summary>
+      
+    
+    
+    
+    <category term="前端开发" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Javascript" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Javascript/"/>
+    
+    
+    <category term="前端开发" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Javascript" scheme="http://example.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>前端WebAPIs回顾4</title>
