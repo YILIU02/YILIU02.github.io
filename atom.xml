@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-03-11T12:00:12.290Z</updated>
+  <updated>2026-03-20T08:51:25.912Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PY入门1</title>
+    <link href="http://example.com/2026/03/20/PY%E5%85%A5%E9%97%A81/"/>
+    <id>http://example.com/2026/03/20/PY%E5%85%A5%E9%97%A81/</id>
+    <published>2026-03-20T05:50:46.000Z</published>
+    <updated>2026-03-20T08:51:25.912Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>在pycharm默认创建一个项目后，存在.venv文件夹与不显示的.idea文件夹，.idea文件夹中存放的是项目的配置文件，.venv是虚拟环境目录，存放当前项目中的环境信息（依赖项）,通过虚拟运行环境可以保证每个py项目都在独立的环境下运行。<br><img src="/img/PY%E5%85%A5%E9%97%A81/1.png"></p><h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>字面量类型：数字（int,float）、布尔（bool本质也是数字，True&#x3D;1,False&#x3D;0）、字符串（str）、空值（NoneType）、数据容器（列表、元组、集合、字典）<br>可通过**type()**获取数据类型,**isinstance(data,type)**检查数据是否属于指定类型,返回bool值</p><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>存储单个数据的容器（空间）,变量名&#x3D;变量值</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">num = <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(num)<span class="hljs-comment"># 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;num:<span class="hljs-subst">&#123;num&#125;</span>&#x27;</span>) <span class="hljs-comment"># print(&#x27;num:&#x27;,num)</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(num)) <span class="hljs-comment"># int</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(num,<span class="hljs-built_in">int</span>)) <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>标识符为代码中对变量、函数、类等元素的满足，标识符严格区分大小写<br>规范：帮助理解，多部分使用下划线连接，英文字母小写</p><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>三种定义</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">str1=<span class="hljs-string">&quot;str1&quot;</span><br>str2=<span class="hljs-string">&#x27;str2&#x27;</span><br>str3=<span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">s</span><br><span class="hljs-string">t</span><br><span class="hljs-string">r</span><br><span class="hljs-string">3</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure><p>字符是字符串内的基本单位，字符串内包含字母数字符号汉字等等都是字符<br>对字符串中的引号或者特殊表示可使用<strong>转义字符</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">str1=<span class="hljs-string">&#x27;It\&#x27;s&#x27;</span> <span class="hljs-comment">#单引号</span><br>str2=<span class="hljs-string">&quot;It\&quot;s&quot;</span><br>str3=<span class="hljs-string">&#x27;\n&#x27;</span> <span class="hljs-comment">#换行</span><br>str4=<span class="hljs-string">&#x27;\t&#x27;</span> <span class="hljs-comment">#增加缩进tab</span><br></code></pre></td></tr></table></figure><h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">str</span>=<span class="hljs-string">&#x27;str1&#x27;</span>+<span class="hljs-string">&#x27;str2&#x27;</span><br>Str=<span class="hljs-string">&#x27;str3&#x27;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;str:&#x27;</span>+<span class="hljs-built_in">str</span>+<span class="hljs-string">&#x27;,Str&#x27;</span>+Str)<br></code></pre></td></tr></table></figure><p><strong>字符串格式化</strong>,通过占位符%s,%表示要占位，s表示将变量转为字符串放入占位的位置</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">str</span>=<span class="hljs-string">&#x27;str1&#x27;</span>+<span class="hljs-string">&#x27;str2&#x27;</span><br>Str=<span class="hljs-string">&#x27;str3&#x27;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;str:%s,Str:%s&#x27;</span>%(<span class="hljs-built_in">str</span>,Str))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;str:<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>&#125;</span>,Str:<span class="hljs-subst">&#123;Str&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure><h3 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h3><p>输入<strong>input(提示信息)<strong>获取键盘输入的数据<br>输出</strong>print(数据)</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">in_put=<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;input somthing&#x27;</span>)<br><span class="hljs-built_in">print</span>(in_put)<br></code></pre></td></tr></table></figure><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><p>+、-、<em>、&#x2F;（返回小数）<br>整除&#x2F;&#x2F;，取余%，幂指数</em>*<br>存在精度损失,如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">x=<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;input x&#x27;</span>)) <span class="hljs-comment">#0.5</span><br>y=<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;input y&#x27;</span>)) <span class="hljs-comment">#0.4</span><br><span class="hljs-built_in">print</span>(x-y) <span class="hljs-comment">#0.09999999999999998</span><br></code></pre></td></tr></table></figure><p>精度损失是由于计算机底层是基于<strong>二进制</strong>进行数据存储管理,二进制无法准确表示所有小数，涉及浮点数运算时可能会有损失</p><h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、&#x2F;&#x2F;&#x3D;、%&#x3D;、**&#x3D;</p><h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><p>&#x3D;&#x3D;、!&#x3D;、&gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;</p><h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>and、or、not</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;目录结构&quot;&gt;&lt;a href=&quot;#目录结构&quot; class=&quot;headerlink&quot; title=&quot;目录结构&quot;&gt;&lt;/a&gt;目录结构&lt;/h3&gt;&lt;p&gt;在pycharm默认创建一个项目后，存在.venv文件夹与不显示的.idea文件夹，.idea文件夹中存放的是项目的配置文件</summary>
+      
+    
+    
+    
+    <category term="python开发" scheme="http://example.com/categories/python%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python入门" scheme="http://example.com/categories/python%E5%BC%80%E5%8F%91/python%E5%85%A5%E9%97%A8/"/>
+    
+    
+    <category term="python开发" scheme="http://example.com/tags/python%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python入门" scheme="http://example.com/tags/python%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>前端JS进阶回顾2</title>
@@ -538,34 +566,6 @@
     <category term="sql" scheme="http://example.com/tags/sql/"/>
     
     <category term="绕过" scheme="http://example.com/tags/%E7%BB%95%E8%BF%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL注入</title>
-    <link href="http://example.com/2024/10/07/SQL%E6%B3%A8%E5%85%A5/"/>
-    <id>http://example.com/2024/10/07/SQL%E6%B3%A8%E5%85%A5/</id>
-    <published>2024-10-07T05:41:49.000Z</published>
-    <updated>2024-10-14T11:57:35.085Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、SQL注入简介"><a href="#一、SQL注入简介" class="headerlink" title="一、SQL注入简介"></a>一、SQL注入简介</h2><p>SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交的数据被后端直接当成数据库代码执行，因此攻击者可以构造不同的SQL语句来查询数据库数据。</p><h2 id="二、SQL注入条件"><a href="#二、SQL注入条件" class="headerlink" title="二、SQL注入条件"></a>二、SQL注入条件</h2><p>1.用户能控制传入后端的数据<br>2.web应用程序把数据作为数据库代码执行</p><h2 id="三、注入步骤"><a href="#三、注入步骤" class="headerlink" title="三、注入步骤"></a>三、注入步骤</h2><h3 id="1-数字型注入"><a href="#1-数字型注入" class="headerlink" title="1.数字型注入"></a>1.数字型注入</h3><p>如果存在注入漏洞，且输入数据类型为整型，则可以认为是数字型注入<br>假设对应SQL语句为<code>select * from table where id=?</code>其中id为用户以get形式传递的参数</p><h4 id="（1）正常输入"><a href="#（1）正常输入" class="headerlink" title="（1）正常输入"></a>（1）正常输入</h4><p>URL后加上？id&#x3D;1,这时候SQL语句为<code>select * from table where id=1</code>会查询表内id为1的数据</p><h4 id="（2）单引号测试"><a href="#（2）单引号测试" class="headerlink" title="（2）单引号测试"></a>（2）单引号测试</h4><p>URL后加上？id&#x3D;1’,这时候SQL语句为<code>select * from table where id=1’</code>此时SQL语句错误，系统会抛出异常</p><h4 id="（3）and-true测试"><a href="#（3）and-true测试" class="headerlink" title="（3）and true测试"></a>（3）and true测试</h4><p>URL后加上？id&#x3D;1 and 1&#x3D;1,这时候SQL语句为<code>select * from table where id=1 and 1=1</code>其中1&#x3D;1为true，那就和（1）情况一样，查询表内id&#x3D;1的数据</p><h4 id="（4）and-false测试"><a href="#（4）and-false测试" class="headerlink" title="（4）and false测试"></a>（4）and false测试</h4><p>URL后加上？id&#x3D;1 and 1&#x3D;2,这时候SQL语句为<code>select * from table where id=1 and 1=2</code>其中1&#x3D;2为false，则该语句虽然可以正常执行，但查询不了数据</p><h4 id="（5）or-true测试"><a href="#（5）or-true测试" class="headerlink" title="（5）or true测试"></a>（5）or true测试</h4><p>URL后加上？id&#x3D;1 or 1&#x3D;1,这时候SQL语句为<code>select * from table where id=1 or 1=1</code>其中1&#x3D;1为true，那语句就变成查询所有id存在的数据，一般来说这时候我们就能够获取到需要的数据了</p><h3 id="2-字符串型注入"><a href="#2-字符串型注入" class="headerlink" title="2.字符串型注入"></a>2.字符串型注入</h3><p>如果存在注入漏洞，且输入数据类型为字符串，则可以认为是字符串型注入<br>与整数型注入不同的是，字符串注入需要使用单引号闭合<br>假设对应SQL语句为<code>select * from table where username=？</code>其中username为用户以get形式传递的参数</p><h4 id="（1）正常输入-1"><a href="#（1）正常输入-1" class="headerlink" title="（1）正常输入"></a>（1）正常输入</h4><p>URL后加上？username&#x3D;admin,这时候SQL语句为<code>select * from table where username=&#39;admin&#39;</code>会查询username为admin的数据</p><h4 id="（2）单引号测试-1"><a href="#（2）单引号测试-1" class="headerlink" title="（2）单引号测试"></a>（2）单引号测试</h4><p>URL后加上？username&#x3D;admin’,这时候SQL语句为<code>select * from table where username=&#39;admin&#39;’</code>此时SQL语句错误，系统会抛出异常</p><h4 id="3-and-true测试"><a href="#3-and-true测试" class="headerlink" title="(3) and true测试"></a>(3) and true测试</h4><p>URL后加上？username&#x3D;admin’ and 1&#x3D;1,这时候SQL语句为<code>select * from table where username=&#39;admin&#39; and 1=1&#39;</code>此时语句末尾存在单引号，语句错误系统抛出错误<br>那我们只要把最后的引号注释掉就可以正常执行了，URL后加上？username&#x3D;admin’ and 1&#x3D;1#,这时候SQL语句为select * from table where username&#x3D;’admin’ and 1&#x3D;1#’，而#为注释符号，执行语句时会忽略#后面的部分，在这里就是忽略最后的’,则最后能够正常执行，结果与（1）相同</p><p>最后and false与or测试只要最后加上#注释符，最后预期结果都与整数型注入的对应结果相同<br>除#号注释符外，还有–和–%20等其他注释方式，详细可了解<br><a href="https://blog.csdn.net/weixin_43096078/article/details/108215076">https://blog.csdn.net/weixin_43096078/article/details/108215076</a></p><h2 id="四、实战"><a href="#四、实战" class="headerlink" title="四、实战"></a>四、实战</h2><p>我们选择buuctf中的一道SQL注入题目为例子</p><h3 id="buuctf：https-buuoj-cn"><a href="#buuctf：https-buuoj-cn" class="headerlink" title="buuctf：https://buuoj.cn/"></a>buuctf：<a href="https://buuoj.cn/">https://buuoj.cn/</a></h3><p><img src="/img/sql%E6%B3%A8%E5%85%A5/title.png"><br>首先名字为EASYSQL,那就用SQL注入浅浅的做一下<br>这种表单数据提交一般都是字符串型注入<br>先是抓包正常输入username&#x3D;1,password&#x3D;1看一下正常页面是怎么样的<br><img src="/img/sql%E6%B3%A8%E5%85%A5/common.png"><br>提示错误，再试试单引号测试<br><img src="/img/sql%E6%B3%A8%E5%85%A5/sql.png"><br>翻译一下回显页面”您的 SQL 语法有错误;检查与您的 MariaDB 服务器版本相对应的手册，了解在第 1 行的 ‘1’’’ 附近使用的正确语法”,可以知道第一行有SQL注入漏洞，就是username，那对第一行进行and true测试，由于抓包改get传参数’后面的数据难改，就回到原本题目页面输入，发现和正常输入回显一样<br><img src="/img/sql%E6%B3%A8%E5%85%A5/and.png"><br><img src="/img/sql%E6%B3%A8%E5%85%A5/commonresult.png"><br>那就直接or测试进行攻击，拿到flag<br><img src="/img/sql%E6%B3%A8%E5%85%A5/or.png"><br><img src="/img/sql%E6%B3%A8%E5%85%A5/orreslut.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;一、SQL注入简介&quot;&gt;&lt;a href=&quot;#一、SQL注入简介&quot; class=&quot;headerlink&quot; title=&quot;一、SQL注入简介&quot;&gt;&lt;/a&gt;一、SQL注入简介&lt;/h2&gt;&lt;p&gt;SQL注入是最常见的web漏洞，本质就是前端没有对表单数据做合理性校验，导致前端提交</summary>
-      
-    
-    
-    
-    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="SQL注入" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/"/>
-    
-    
-    <category term="web" scheme="http://example.com/tags/web/"/>
-    
-    <category term="注入" scheme="http://example.com/tags/%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
