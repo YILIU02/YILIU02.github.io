@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>PY进阶——面向对象_多态性</title>
+    <link href="/2026/03/25/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%A4%9A%E6%80%81%E7%AF%87/"/>
+    <url>/2026/03/25/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%A4%9A%E6%80%81%E7%AF%87/</url>
+    
+    <content type="html"><![CDATA[<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态指的是同一个函数接收不同的参数有不同的效果<br>实现多态的条件：<br>1.有继承<br>2.函数重写（子类重写父类的函数）<br>3.父类引用指向子类对象（子类对象传给父类对象调用者）<br><strong>注意</strong>上述条件与JAVA中的一致，但py是一门弱类型语言，因此可以不满足条件也可以实现多态</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sex</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">pass</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Man</span>(<span class="hljs-title class_ inherited__">Person</span>):<span class="hljs-comment">#继承</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.name = <span class="hljs-string">&#x27;Man&#x27;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sex</span>(<span class="hljs-params">self</span>):<span class="hljs-comment">#函数重写</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.name<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.name = <span class="hljs-string">&#x27;WoMan&#x27;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sex</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.name<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_sex</span>(<span class="hljs-params">m</span>):<span class="hljs-comment">#接收不同对象实现不同效果，等同m:Person,但py的弱类型语言，传递非Person类的参数时只会警告</span><br>    <span class="hljs-keyword">return</span>  m.sex()<br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    m1 = Man() <span class="hljs-comment">#m1:Person=Man() 父类引用指向子类对象</span><br>    m2 = Woman()<br>    <span class="hljs-built_in">print</span>(get_sex(m1))<br>    <span class="hljs-built_in">print</span>(get_sex(m2))<br></code></pre></td></tr></table></figure><p>多态能实现模块间的解耦合（函数重写与调用函数来实现），增加可扩展性<br>但在python中无法精准限定类型（只警告，不报错）</p><p><strong>注意</strong>：上述代码中父类的sex方法是空写pass，这是使用父类来确定有哪些方法（<strong>抽象类、抽象接口</strong>），子类来实现具体方法</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>python开发</category>
+      
+      <category>python入门</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python开发</tag>
+      
+      <tag>python入门</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>PY进阶——面向对象_封装篇</title>
     <link href="/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85%E7%AF%87/"/>
     <url>/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85%E7%AF%87/</url>

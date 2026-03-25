@@ -19,16 +19,16 @@
   <meta name="author" content="印星">
   <meta name="keywords" content="">
   
-    <meta name="description" content="封装将属性和方法写入类中的操作就是封装，封装可以为属性和方法添加私有权限当不想被继承时，可以设置某个属性或者方法前加上__ 12345#私有属性__属性名#私有方法def __方法名():    ... 私有属性&#x2F;方法只能在类的内部使用，不能在外部使用如果想要在外部使用要通过公共接口 12345678910111213141516class Man:    def __init__(se">
+    <meta name="description" content="多态多态指的是同一个函数接收不同的参数有不同的效果实现多态的条件：1.有继承2.函数重写（子类重写父类的函数）3.父类引用指向子类对象（子类对象传给父类对象调用者）注意上述条件与JAVA中的一致，但py是一门弱类型语言，因此可以不满足条件也可以实现多态 1234567891011121314151617181920class Person:    def sex(self):        pas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PY进阶——面向对象_封装篇">
-<meta property="og:url" content="http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85%E7%AF%87/index.html">
+<meta property="og:title" content="PY进阶——面向对象_多态性">
+<meta property="og:url" content="http://example.com/2026/03/25/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%A4%9A%E6%80%81%E7%AF%87/index.html">
 <meta property="og:site_name" content="印星">
-<meta property="og:description" content="封装将属性和方法写入类中的操作就是封装，封装可以为属性和方法添加私有权限当不想被继承时，可以设置某个属性或者方法前加上__ 12345#私有属性__属性名#私有方法def __方法名():    ... 私有属性&#x2F;方法只能在类的内部使用，不能在外部使用如果想要在外部使用要通过公共接口 12345678910111213141516class Man:    def __init__(se">
+<meta property="og:description" content="多态多态指的是同一个函数接收不同的参数有不同的效果实现多态的条件：1.有继承2.函数重写（子类重写父类的函数）3.父类引用指向子类对象（子类对象传给父类对象调用者）注意上述条件与JAVA中的一致，但py是一门弱类型语言，因此可以不满足条件也可以实现多态 1234567891011121314151617181920class Person:    def sex(self):        pas">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/10.png">
-<meta property="article:published_time" content="2026-03-24T12:32:41.000Z">
-<meta property="article:modified_time" content="2026-03-25T09:22:58.027Z">
+<meta property="article:published_time" content="2026-03-25T09:24:23.000Z">
+<meta property="article:modified_time" content="2026-03-25T10:31:54.211Z">
 <meta property="article:author" content="印星">
 <meta property="article:tag" content="python开发">
 <meta property="article:tag" content="python入门">
@@ -37,7 +37,7 @@
   
   
   
-  <title>PY进阶——面向对象_封装篇 - 印星</title>
+  <title>PY进阶——面向对象_多态性 - 印星</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PY进阶——面向对象_封装篇"></span>
+            <span id="subtitle" data-typed-text="PY进阶——面向对象_多态性"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-03-24 20:32" pubdate>
-          2026年3月24日 晚上
+        <time datetime="2026-03-25 17:24" pubdate>
+          2026年3月25日 下午
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          240 字
+          306 字
         
       </span>
     
@@ -302,16 +302,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">PY进阶——面向对象_封装篇</h1>
+            <h1 id="seo-header">PY进阶——面向对象_多态性</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>将属性和方法写入类中的操作就是封装，封装可以为属性和方法添加私有权限<br>当不想被继承时，可以设置某个属性或者方法前加上__</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#私有属性</span><br>__属性名<br><span class="hljs-comment">#私有方法</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">__方法名</span>():<br>    ...<br></code></pre></td></tr></table></figure>
-<p>私有属性&#x2F;方法只能在类的内部使用，不能在外部使用<br>如果想要在外部使用要通过公共接口</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Man</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,money</span>):<br>        <span class="hljs-variable language_">self</span>.leg=<span class="hljs-number">2</span><br>        <span class="hljs-variable language_">self</span>.eyes=<span class="hljs-number">2</span><br>        <span class="hljs-variable language_">self</span>.__money=money<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">consumption</span>(<span class="hljs-params">self,money</span>):<br>        <span class="hljs-variable language_">self</span>.__money+=money<br>        <span class="hljs-built_in">print</span>(<span class="hljs-variable language_">self</span>.__money)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_money</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.__money<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Children</span>(<span class="hljs-title class_ inherited__">Man</span>):<br>    <span class="hljs-keyword">pass</span><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    c1=Children(<span class="hljs-number">100</span>)<br>    <span class="hljs-comment"># print(c1.__money) 报错</span><br>    <span class="hljs-built_in">print</span>(c1.get_money()) <span class="hljs-comment"># 100</span><br></code></pre></td></tr></table></figure>
-<p>上述代码中，公共接口是父类定义的方法<strong>get_money</strong>为公共接口，同理也能定义修改的公共接口<br>私有确实提高了代码的安全性，但会提高代码量，为解决这个问题所以提出了继承，继承的弊端是耦合性强，因此我们提出多态</p>
+                <h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态指的是同一个函数接收不同的参数有不同的效果<br>实现多态的条件：<br>1.有继承<br>2.函数重写（子类重写父类的函数）<br>3.父类引用指向子类对象（子类对象传给父类对象调用者）<br><strong>注意</strong>上述条件与JAVA中的一致，但py是一门弱类型语言，因此可以不满足条件也可以实现多态</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sex</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">pass</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Man</span>(<span class="hljs-title class_ inherited__">Person</span>):<span class="hljs-comment">#继承</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.name = <span class="hljs-string">&#x27;Man&#x27;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sex</span>(<span class="hljs-params">self</span>):<span class="hljs-comment">#函数重写</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.name<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.name = <span class="hljs-string">&#x27;WoMan&#x27;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sex</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.name<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_sex</span>(<span class="hljs-params">m</span>):<span class="hljs-comment">#接收不同对象实现不同效果，等同m:Person,但py的弱类型语言，传递非Person类的参数时只会警告</span><br>    <span class="hljs-keyword">return</span>  m.sex()<br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    m1 = Man() <span class="hljs-comment">#m1:Person=Man() 父类引用指向子类对象</span><br>    m2 = Woman()<br>    <span class="hljs-built_in">print</span>(get_sex(m1))<br>    <span class="hljs-built_in">print</span>(get_sex(m2))<br></code></pre></td></tr></table></figure>
+<p>多态能实现模块间的解耦合（函数重写与调用函数来实现），增加可扩展性<br>但在python中无法精准限定类型（只警告，不报错）</p>
+<p><strong>注意</strong>：上述代码中父类的sex方法是空写pass，这是使用父类来确定有哪些方法（<strong>抽象类、抽象接口</strong>），子类来实现具体方法</p>
 
                 
               </div>
@@ -366,8 +365,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>PY进阶——面向对象_封装篇</div>
-      <div>http://example.com/2026/03/24/PY进阶——面向对象-封装篇/</div>
+      <div>PY进阶——面向对象_多态性</div>
+      <div>http://example.com/2026/03/25/PY进阶——面向对象-多态篇/</div>
     </div>
     <div class="license-meta">
       
@@ -379,7 +378,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年3月24日</div>
+          <div>2026年3月25日</div>
         </div>
       
       
@@ -411,18 +410,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/03/25/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%A4%9A%E6%80%81%E7%AF%87/" title="PY进阶——面向对象_多态性">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PY进阶——面向对象_多态性</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%BB%A7%E6%89%BF%E7%AF%87/" title="PY进阶——面向对象_继承篇">
-                        <span class="hidden-mobile">PY进阶——面向对象_继承篇</span>
+                      <a href="/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85%E7%AF%87/" title="PY进阶——面向对象_封装篇">
+                        <span class="hidden-mobile">PY进阶——面向对象_封装篇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
