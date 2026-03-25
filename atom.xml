@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-03-24T12:31:38.103Z</updated>
+  <updated>2026-03-25T09:22:58.027Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,9 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PY进阶——面向对象_封装篇</title>
+    <link href="http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85%E7%AF%87/"/>
+    <id>http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%B0%81%E8%A3%85%E7%AF%87/</id>
+    <published>2026-03-24T12:32:41.000Z</published>
+    <updated>2026-03-25T09:22:58.027Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>将属性和方法写入类中的操作就是封装，封装可以为属性和方法添加私有权限<br>当不想被继承时，可以设置某个属性或者方法前加上__</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#私有属性</span><br>__属性名<br><span class="hljs-comment">#私有方法</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">__方法名</span>():<br>    ...<br></code></pre></td></tr></table></figure><p>私有属性&#x2F;方法只能在类的内部使用，不能在外部使用<br>如果想要在外部使用要通过公共接口</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Man</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,money</span>):<br>        <span class="hljs-variable language_">self</span>.leg=<span class="hljs-number">2</span><br>        <span class="hljs-variable language_">self</span>.eyes=<span class="hljs-number">2</span><br>        <span class="hljs-variable language_">self</span>.__money=money<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">consumption</span>(<span class="hljs-params">self,money</span>):<br>        <span class="hljs-variable language_">self</span>.__money+=money<br>        <span class="hljs-built_in">print</span>(<span class="hljs-variable language_">self</span>.__money)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_money</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.__money<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Children</span>(<span class="hljs-title class_ inherited__">Man</span>):<br>    <span class="hljs-keyword">pass</span><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    c1=Children(<span class="hljs-number">100</span>)<br>    <span class="hljs-comment"># print(c1.__money) 报错</span><br>    <span class="hljs-built_in">print</span>(c1.get_money()) <span class="hljs-comment"># 100</span><br></code></pre></td></tr></table></figure><p>上述代码中，公共接口是父类定义的方法<strong>get_money</strong>为公共接口，同理也能定义修改的公共接口<br>私有确实提高了代码的安全性，但会提高代码量，为解决这个问题所以提出了继承，继承的弊端是耦合性强，因此我们提出多态</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;封装&quot;&gt;&lt;a href=&quot;#封装&quot; class=&quot;headerlink&quot; title=&quot;封装&quot;&gt;&lt;/a&gt;封装&lt;/h3&gt;&lt;p&gt;将属性和方法写入类中的操作就是封装，封装可以为属性和方法添加私有权限&lt;br&gt;当不想被继承时，可以设置某个属性或者方法前加上__&lt;/p&gt;
+&lt;f</summary>
+      
+    
+    
+    
+    <category term="python开发" scheme="http://example.com/categories/python%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python入门" scheme="http://example.com/categories/python%E5%BC%80%E5%8F%91/python%E5%85%A5%E9%97%A8/"/>
+    
+    
+    <category term="python开发" scheme="http://example.com/tags/python%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python入门" scheme="http://example.com/tags/python%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PY进阶——面向对象_继承篇</title>
-    <link href="http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B61%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B61%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
+    <link href="http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%BB%A7%E6%89%BF%E7%AF%87/"/>
+    <id>http://example.com/2026/03/24/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%BB%A7%E6%89%BF%E7%AF%87/</id>
     <published>2026-03-24T10:11:38.000Z</published>
     <updated>2026-03-24T12:31:38.103Z</updated>
     
@@ -537,32 +566,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;一、Meterprete&quot;&gt;&lt;a href=&quot;#一、Meterprete&quot; class=&quot;headerlink&quot; title=&quot;一、Meterprete&quot;&gt;&lt;/a&gt;一、Meterprete&lt;/h2&gt;&lt;p&gt;Meterpreter是Metasploit Framewo</summary>
-      
-    
-    
-    
-    <category term="Web安全" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="漏洞复现" scheme="http://example.com/categories/Web%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="网络渗透" scheme="http://example.com/tags/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python检测微笑漏洞</title>
-    <link href="http://example.com/2024/10/15/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/"/>
-    <id>http://example.com/2024/10/15/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/</id>
-    <published>2024-10-15T11:59:30.000Z</published>
-    <updated>2024-10-22T12:42:07.742Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、微笑漏洞介绍"><a href="#一、微笑漏洞介绍" class="headerlink" title="一、微笑漏洞介绍"></a>一、微笑漏洞介绍</h2><pre><code class="hljs">漏洞服务：VSFTPD 2.3.4，俗称笑脸漏洞。存在于这个2.3.4版本，属于开发者设计上的失误。在检测到用户名带有特殊字符`：）`时，会自动打开6200端口。</code></pre><h2 id="二、使用工具"><a href="#二、使用工具" class="headerlink" title="二、使用工具"></a>二、使用工具</h2><p>攻击机：kali linux<br>靶机：Metasploitable2</p><h2 id="三、检测过程"><a href="#三、检测过程" class="headerlink" title="三、检测过程"></a>三、检测过程</h2><h4 id="1-使用Nmap扫描同网段下的主机，得到靶机ip"><a href="#1-使用Nmap扫描同网段下的主机，得到靶机ip" class="headerlink" title="1.使用Nmap扫描同网段下的主机，得到靶机ip"></a>1.使用Nmap扫描同网段下的主机，得到靶机ip</h4><p><code>nmap 192.168.121.0/24</code><br><img src="/img/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/1.png"></p><h4 id="2-在网上找到检测微笑漏洞的python脚本"><a href="#2-在网上找到检测微笑漏洞的python脚本" class="headerlink" title="2.在网上找到检测微笑漏洞的python脚本"></a>2.在网上找到检测微笑漏洞的python脚本</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> socket<br><span class="hljs-keyword">from</span> ftplib <span class="hljs-keyword">import</span> FTP<br> <br>url = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入你需要检测的地址：&quot;</span>)<br>ftp = FTP()<br>username = <span class="hljs-string">&#x27;root:)&#x27;</span> <span class="hljs-comment">#用户名必须包含：)这两个字符</span><br>password = <span class="hljs-string">&#x27;anonymous&#x27;</span> <span class="hljs-comment">#密码随便啥都行</span><br><span class="hljs-keyword">try</span>:<br>    ftp.connect(url,<span class="hljs-number">21</span>,timeout=<span class="hljs-number">10</span>)<span class="hljs-comment">#使用ftp登录，设置延时10秒</span><br>    ftp.login(username,password)<br>    ftp.quit()<br><span class="hljs-keyword">except</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;完成登录检测&quot;</span>)<br><span class="hljs-keyword">try</span>:<br>    s = socket.socket() <span class="hljs-comment">#使用socket函数来检测是否有漏洞存在</span><br>    s.connect((url,<span class="hljs-number">6200</span>))<br>    s.close()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;存在微笑漏洞&quot;</span>)<br><span class="hljs-keyword">except</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;没有发现笑脸漏洞！&quot;</span>)<br></code></pre></td></tr></table></figure><h4 id="3-kali运行并输入靶机ip"><a href="#3-kali运行并输入靶机ip" class="headerlink" title="3.kali运行并输入靶机ip"></a>3.kali运行并输入靶机ip</h4><p><img src="/img/Python%E6%A3%80%E6%B5%8B%E5%BE%AE%E7%AC%91%E6%BC%8F%E6%B4%9E/2.png"><br>检测成功</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;一、微笑漏洞介绍&quot;&gt;&lt;a href=&quot;#一、微笑漏洞介绍&quot; class=&quot;headerlink&quot; title=&quot;一、微笑漏洞介绍&quot;&gt;&lt;/a&gt;一、微笑漏洞介绍&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;hljs&quot;&gt;漏洞服务：VSFTPD 2.3.4，俗称笑脸漏洞。</summary>
       
     
     
