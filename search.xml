@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>PY进阶——网编与多线程</title>
+      <link href="/2026/03/27/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E7%BD%91%E7%BC%96%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+      <url>/2026/03/27/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E7%BD%91%E7%BC%96%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><p>用来实现不同计算机上运行的程序间进行数据交互<br>主要应用于文件传输、设备数据传输</p><h3 id="IP-端口号-协议"><a href="#IP-端口号-协议" class="headerlink" title="IP&#x2F;端口号&#x2F;协议"></a>IP&#x2F;端口号&#x2F;协议</h3><p>IP确定设备，端口号确定服务，协议保障数据传输的规则</p><h3 id="Soket与TCP开发流程"><a href="#Soket与TCP开发流程" class="headerlink" title="Soket与TCP开发流程"></a>Soket与TCP开发流程</h3><p>TCP通信：三次握手建立连接，四次挥手断开连接<br>建立连接后进行数据传输，该协议数据传输可靠<br><strong>Socket</strong>是进程之间通信的一个工具</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#导入socket模块</span><br><span class="hljs-keyword">import</span> socket<br><span class="hljs-comment"># socket(AddressFamily,Type)</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">上述创建一个socket对象</span><br><span class="hljs-string">参数AddressFamily（地址族）默认选择AF_INET(ipv4），AF_INT6（ipv6）用于进程间通信，</span><br><span class="hljs-string">Type表示套接字类型（默认SOCK_STREAM，用于TCP协议；SOCK_DGRAM用于UDP）</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-comment">#创建Socket对象</span><br>socket_obj=socket.socket(socket.AF_INET,socket.SOCK_STREAM)<br></code></pre></td></tr></table></figure><h4 id="TCP开发流程"><a href="#TCP开发流程" class="headerlink" title="TCP开发流程"></a>TCP开发流程</h4><p>服务端：socket()-&gt;bind()-&gt;listen()-&gt;accept()-&gt;等待连接-&gt;(send()&lt;&#x3D;&gt;recv())-&gt;close()<br>bind()指定服务端(ip,端口号)，listen()最大监听数(最大数为128),accept()等待监听（会返回一个包含负责和客户端交互的socket与客户端信息的元组，也称为connection对象），即当客户端开始连接时，会分配单独的socket对象与客户端做交互<br>send(data)发送数据（data为bytes二进制形式），recv(bufsize)接收数据（返回bytes二进制形式，bufsize指定最大的数据量），close()关闭连接，对服务端来说关闭的是那个单独的socket<br>客户端：socket()-&gt;connect()-&gt;(recv()&lt;&#x3D;&gt;send())-&gt;close()<br>connect()向(ip,端口号)发起连接<br><img src="/img/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/1.png"><br>除上述外还有同时应用于服务端&#x2F;客户端的函数为**setsokopt(level,optname,value)**用于设置端口号复用，当程序结束后立即释放端口号，level&#x3D;SOL_SOCKET,optname&#x3D;SO_REUSEADDR,value&#x3D;True</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python开发 </category>
+          
+          <category> python进阶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python开发 </tag>
+            
+            <tag> python进阶 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PY进阶——闭包与装饰器</title>
       <link href="/2026/03/25/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%97%AD%E5%8C%85%E4%B8%8E%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
       <url>/2026/03/25/PY%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94%E9%97%AD%E5%8C%85%E4%B8%8E%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
@@ -15,7 +44,7 @@
           
           <category> python开发 </category>
           
-          <category> python入门 </category>
+          <category> python进阶 </category>
           
       </categories>
       
@@ -24,7 +53,7 @@
             
             <tag> python开发 </tag>
             
-            <tag> python入门 </tag>
+            <tag> python进阶 </tag>
             
         </tags>
       
